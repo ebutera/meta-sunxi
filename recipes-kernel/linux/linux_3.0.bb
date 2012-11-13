@@ -6,15 +6,15 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(allwinner-a10)"
 
-PR = "2"
+PR = "3"
 
 PV = "3.0.42"
 # Last tested version by myself"
-SRCREV_pn-${PN} = "7003c80c6dbea815c4a78e745565ec03a039ba3a"
+SRCREV_pn-${PN} = "09946bae6c414e62c066c57169100c62cd303500"
 
 MACHINE_KERNEL_PR_append = "a"
 
-SRC_URI += "git://github.com/amery/linux-allwinner.git;branch=allwinner-v3.0-android-v2;protocol=git \
+SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.0;protocol=git \
         file://0001-aufs3-kbuild.patch \
         file://0002-aufs3-base.patch \
         file://0003-aufs3-proc_map.patch \
@@ -30,6 +30,13 @@ S = "${WORKDIR}/git"
 do_copy_aufs () {
   cp ${WORKDIR}/aufs_type.h ${S}/include/linux
   cp -a ${WORKDIR}/fs ${S}/
+  rm -rf ${S}/modules/wifi
+}
+
+do_package_prepend() {
+
 }
 
 addtask copy_aufs after do_unpack before do_patch
+
+INSANE_SKIP_kernel-dev = "debug-files debug-deps"
