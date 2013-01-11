@@ -6,11 +6,11 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(allwinner-a10)"
 
-PR = "3"
+PR = "5"
 
-PV = "3.0.42"
+PV = "3.0.57"
 # Last tested version by myself"
-SRCREV_pn-${PN} = "09946bae6c414e62c066c57169100c62cd303500"
+SRCREV_pn-${PN} = "3358ff60249126be7bc4ec300cfbd0ea83d535a0"
 
 MACHINE_KERNEL_PR_append = "a"
 
