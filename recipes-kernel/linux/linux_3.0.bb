@@ -8,9 +8,9 @@ COMPATIBLE_MACHINE = "(mele|olinuxino-a13|cubieboard)"
 
 PR = "8"
 
-PV = "3.0.62"
+PV = "3.0.76"
 # Last tested version by myself"
-SRCREV_pn-${PN} = "caa11e27c061ed279f6d7e1d85df7d0caa650878"
+SRCREV_pn-${PN} = "274a66a7bfcbaabb88d63e4eba161965383cc416"
 
 MACHINE_KERNEL_PR_append = "a"
 
