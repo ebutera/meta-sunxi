@@ -1,4 +1,4 @@
-require recipes-bsp/u-boot/u-boot.inc
+require u-boot.inc
 
 LICENSE = "GPL"
 
@@ -11,12 +11,14 @@ DEFAULT_PREFERENCE_cubieboard="1"
 
 SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi"
 
-SRCREV = "7aa9f04f571247a6bb999c168b49e09f05b86465"
-PR = "r5"
+SRCREV = "234e002000b9e629165a8348aba9986a759e0e55"
+PR = "r6"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=1707d6db1d42237583f50183a5651ecb"
 
 S = "${WORKDIR}/git"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 do_install_prepend() {
 	cp ${S}/spl/sunxi-spl.bin ${S}

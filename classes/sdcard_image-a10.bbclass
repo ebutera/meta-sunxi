@@ -50,10 +50,6 @@ IMAGE_CMD_a10-sdimg () {
 	# Initialize sdcard image file
 	dd if=/dev/zero of=${SDIMG} bs=1 count=0 seek=$(expr 1024 \* ${SDIMG_SIZE})
 
-	#write u-boot-spl.bin and u-boot
-	dd if=${DEPLOY_DIR_IMAGE}/sunxi-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
-	dd if=${DEPLOY_DIR_IMAGE}/u-boot.bin of=${SDIMG} bs=1024 seek=32 conv=notrunc
-
 	# Create partition table
 	parted -s ${SDIMG} mklabel msdos
 	# Create boot partition and mark it as bootable
@@ -82,4 +78,8 @@ IMAGE_CMD_a10-sdimg () {
 	else
 		dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	fi
+
+	#write u-boot-spl.bin and u-boot
+	dd if=${DEPLOY_DIR_IMAGE}/sunxi-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
+	dd if=${DEPLOY_DIR_IMAGE}/u-boot.bin of=${SDIMG} bs=1024 seek=32 conv=notrunc
 }
