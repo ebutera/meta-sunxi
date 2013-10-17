@@ -1,7 +1,7 @@
 DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 LICENSE = "proprietary-binary"
 
-INC_PR = "r1"
+INC_PR = "r2"
 
 LIC_FILES_CHKSUM = "file://README;md5=a103ac69c166fcd98a67a9917dd7affd"
 
@@ -20,12 +20,11 @@ SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git;protocol=http"
 
 S = "${WORKDIR}/git"
 
-do_compile_append() {
-	     make config DESTDIR=${D}/ VERSION=r3p0 ABI=armhf EGL_TYPE=x11 
-	     make
+do_configure() {
+         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf EGL_TYPE=x11 make config
 }
 
-do_install_append() {
+do_install() {
 	     mkdir -p ${D}${libdir}
 	     mkdir -p {$D}{includedir}
 	     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install
