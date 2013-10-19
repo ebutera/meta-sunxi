@@ -1,6 +1,6 @@
 require u-boot.inc
 
-LICENSE = "GPL"
+LICENSE = "gplv2"
 
 # No patches for other machines yet
 COMPATIBLE_MACHINE = "(mele|olinuxino-a13|cubieboard|cubieboard2)"
@@ -15,12 +15,11 @@ SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sun
 SRCREV = "8a4621c488f33089d831168bfa5bae210a5684c8"
 PR = "r6"
 
-LIC_FILES_CHKSUM = "file://COPYING;md5=1707d6db1d42237583f50183a5651ecb"
+LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 S = "${WORKDIR}/git"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-do_install_prepend() {
-	cp ${S}/spl/sunxi-spl.bin ${S}
-}
+SPL_BINARY="u-boot-sunxi-with-spl.bin"
+

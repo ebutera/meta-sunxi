@@ -79,7 +79,7 @@ IMAGE_CMD_a10-sdimg () {
 		dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	fi
 
-	#write u-boot-spl.bin and u-boot
-	dd if=${DEPLOY_DIR_IMAGE}/sunxi-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
-	dd if=${DEPLOY_DIR_IMAGE}/u-boot.bin of=${SDIMG} bs=1024 seek=32 conv=notrunc
+	#write u-boot and spl at the beginint of sdcard in one shot
+	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
+
 }
