@@ -7,9 +7,9 @@ PR = "1"
 LICENSE = "MIT-X"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f91dc3ee5ce59eb4b528e67e98a31266"
 
-SRC_URI = "git://github.com/ssvb/xf86-video-sunxifb.git;protocol=http;branch=master"
+SRC_URI = "git://github.com/ssvb/xf86-video-fbturbo.git;protocol=http;branch=master"
 
-SRCREV_pn-${PN} = "cbd5b2b6439308b293c84cce5e7923ef072c8110"
+SRCREV_pn-${PN} = "fed3148bad26186dd04707cdac67809a666f1742"
 S = "${WORKDIR}/git"
 
 CFLAGS += " -I${STAGING_INCDIR}/xorg "
