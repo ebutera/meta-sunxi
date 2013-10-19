@@ -5,21 +5,30 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
-PR = "r1"
-SRCREV = "1f5056275a6c026f308ac6f7ae52125c390d1d7c"
+PR = "r2"
+SRCREV = "ed6f7969d80b91048b0ed95ccb61cc98f46fead7"
 
-SRC_URI = "git://github.com/amery/sunxi-tools.git;protocol=git"
+DEPENDS += "libusb"
+
+SRC_URI = "git://github.com/linux-sunxi/sunxi-tools;protocol=git"
 
 S = "${WORKDIR}/git"
 
+BBCLASSEXTEND = "native nativesdk"
+
 FILES_${PN} = "${bindir}/*"
 
-do_compile() {
-    cd ${S}
-    ${CC} -I./include nand-part.c -o nand-part
-}
+CFLAGS = "-std=c99 -D_POSIX_C_SOURCE=200112L -I./include"
 
 do_install() {
     install -d ${D}/${bindir}
+    install -m 755 ${S}/bootinfo ${D}/${bindir}
+    install -m 755 ${S}/bin2fex ${D}/${bindir}
+    install -m 755 ${S}/fel ${D}/${bindir}
+    install -m 755 ${S}/fel-gpio ${D}/${bindir}
+    install -m 755 ${S}/fex2bin ${D}/${bindir}
+    install -m 755 ${S}/fexc ${D}/${bindir}
     install -m 755 ${S}/nand-part ${D}/${bindir}
+    install -m 755 ${S}/pio ${D}/${bindir}
+    install -m 755 ${S}/usb-boot ${D}/${bindir}
 }
