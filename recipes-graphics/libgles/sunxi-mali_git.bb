@@ -1,7 +1,7 @@
 DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 LICENSE = "proprietary-binary"
 
-INC_PR = "r2"
+INC_PR = "r3"
 
 LIC_FILES_CHKSUM = "file://README;md5=a103ac69c166fcd98a67a9917dd7affd"
 
@@ -30,17 +30,20 @@ do_configure() {
 }
 
 do_install() {
-             mkdir -p ${D}${libdir}
-	     mkdir -p {$D}{includedir}
-	     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install
-     	     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install -C include	     
-             # Fix .so name and create symlinks, binary package provides .so wich can't be included directly in package
-             rm ${D}${libdir}/libEGL.so.1.4
-             ln -sf libMali.so.3 ${D}${libdir}/libEGL.so.1.4
-             rm ${D}${libdir}/libGLESv1_CM.so.1.1
-             ln -sf libMali.so.3 ${D}${libdir}/libGLESv1_CM.so.1.1
-             rm ${D}${libdir}/libGLESv2.so.2.0
-             ln -sf  libMali.so.3 ${D}${libdir}/libGLESv2.so.2.0
-             mv ${D}${libdir}/libMali.so ${D}${libdir}/libMali.so.3
-             ln -sf libMali.so.3.0 ${D}${libdir}/libMali.so
+    install -d ${D}${libdir}
+    install -d ${D}${includedir}
+    
+    make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install
+    make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install -C include
+
+    # Fix .so name and create symlinks, binary package provides .so wich can't be included directly in package
+
+    mv ${D}${libdir}/libMali.so ${D}${libdir}/libMali.so.3
+    ln -sf libMali.so.3 ${D}${libdir}/libMali.so
+
+    for flib in libEGL.so.1.4 libGLESv1_CM.so.1.1 libGLESv2.so.2.0 ; do
+        rm ${D}${libdir}/$flib
+        ln -sf libMali.so.3 ${D}${libdir}/$flib
+    done
 }
+
