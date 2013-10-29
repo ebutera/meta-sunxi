@@ -35,6 +35,12 @@ IMAGE_DEPENDS_a10-sdimg = " \
 			virtual/bootloader \
 			"
 
+# Compile FEX file
+# For now it is only available for OLinuXino A10S
+IMAGE_DEPENDS_a10-sdimg_olinuxino-a10s = " \
+			sunxi-board-fex \
+			"
+
 # SD card image name
 SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.a10-sdimg"
 
@@ -64,6 +70,10 @@ IMAGE_CMD_a10-sdimg () {
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/u-boot.bin ::
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::uImage
+	if [[ -e "${DEPLOY_DIR_IMAGE}/fex.bin" ]]
+	then
+		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/fex.bin ::script.bin
+	fi
 
 	# Add stamp file
 	echo "${IMAGE_NAME}-${IMAGEDATESTAMP}" > ${WORKDIR}/image-version-info
