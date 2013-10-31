@@ -47,4 +47,4 @@ do_populate_sysroot[noexec] = "1"
 
 # Remember to add machine entry to IMAGE_DEPENDS in sdcard_image-a10.bbclass
 # when adding new machines.
-COMPATIBLE_MACHINE = "(olinuxino-a10s cubieboard2)"
+COMPATIBLE_MACHINE = "(olinuxino-a10s|cubieboard2)"
