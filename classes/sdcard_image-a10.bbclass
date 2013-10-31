@@ -36,8 +36,10 @@ IMAGE_DEPENDS_a10-sdimg = " \
 			"
 
 # Compile FEX file
-# For now it is only available for OLinuXino A10S
 IMAGE_DEPENDS_a10-sdimg_olinuxino-a10s = " \
+			sunxi-board-fex \
+			"
+IMAGE_DEPENDS_a10-sdimg_cubieboard2 = " \
 			sunxi-board-fex \
 			"
 
