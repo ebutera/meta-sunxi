@@ -36,8 +36,10 @@ IMAGE_DEPENDS_a10-sdimg = " \
 			"
 
 # Compile FEX file
-# For now it is only available for OLinuXino A10S
 IMAGE_DEPENDS_a10-sdimg_olinuxino-a10s = " \
+			sunxi-board-fex \
+			"
+IMAGE_DEPENDS_a10-sdimg_cubieboard2 = " \
 			sunxi-board-fex \
 			"
 
@@ -68,9 +70,8 @@ IMAGE_CMD_a10-sdimg () {
 	# Create a vfat image with boot files
 	BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDIMG} unit b print | awk '/ 1 / { print substr($4, 1, length($4 -1)) / 512 /2 }')
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
-	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/u-boot.bin ::
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::uImage
-	if [[ -e "${DEPLOY_DIR_IMAGE}/fex.bin" ]]
+	if [ -e "${DEPLOY_DIR_IMAGE}/fex.bin" ]
 	then
 		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/fex.bin ::script.bin
 	fi

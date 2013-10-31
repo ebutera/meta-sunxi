@@ -6,12 +6,14 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0ceb3372c9595f0a
 DEPENDS = "sunxi-tools-native"
 SRCREV = "4016ad7fb6c249c0bd6b6d804c706f9a7a165cc6"
 PV = "1.0"
-PR = "r0"
+PR = "r1"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 
 S = "${WORKDIR}/git"
 SUNXI_FEX_FILE_olinuxino-a10s = "sys_config/a10s/a10s-olinuxino-m.fex"
+SUNXI_FEX_FILE_cubieboard2 = "sys_config/a20/cubieboard2.fex"
+
 SUNXI_FEX_BIN_IMAGE = "fex-${MACHINE}-${PV}-${PR}.bin"
 SUNXI_FEX_BIN_IMAGE_SYMLINK = "fex-${MACHINE}.bin"
 SUNXI_FEX_BIN_IMAGE_SYMLINK_SIMPLE = "fex.bin"
@@ -45,4 +47,4 @@ do_populate_sysroot[noexec] = "1"
 
 # Remember to add machine entry to IMAGE_DEPENDS in sdcard_image-a10.bbclass
 # when adding new machines.
-COMPATIBLE_MACHINE = "(olinuxino-a10s)"
+COMPATIBLE_MACHINE = "(olinuxino-a10s|cubieboard2)"

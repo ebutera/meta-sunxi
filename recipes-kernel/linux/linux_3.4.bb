@@ -1,12 +1,12 @@
 require linux.inc
 
-DESCRIPTION = "Linux kernel for Allwinner a10 processors"
+DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
 KERNEL_IMAGETYPE = "uImage"
 
-COMPATIBLE_MACHINE = "(mele|olinuxino-a13|olinuxino-a10s|cubieboard)"
+COMPATIBLE_MACHINE = "(mele|olinuxino-a13|olinuxino-a10s|cubieboard|cubieboard2)"
 
-PR = "11"
+PR = "12"
 
 PV = "3.4.61"
 # Last tested version by myself"
