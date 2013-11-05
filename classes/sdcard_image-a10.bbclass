@@ -38,9 +38,27 @@ IMAGE_DEPENDS_a10-sdimg = " \
 # Compile FEX file
 IMAGE_DEPENDS_a10-sdimg_olinuxino-a10s = " \
 			sunxi-board-fex \
+			parted-native \
+			mtools-native \
+			dosfstools-native \
+			virtual/kernel \
+			virtual/bootloader \
 			"
 IMAGE_DEPENDS_a10-sdimg_cubieboard2 = " \
 			sunxi-board-fex \
+			parted-native \
+			mtools-native \
+			dosfstools-native \
+			virtual/kernel \
+			virtual/bootloader \
+			"
+IMAGE_DEPENDS_a10-sdimg_cubieboard = " \
+			sunxi-board-fex \
+			parted-native \
+			mtools-native \
+			dosfstools-native \
+			virtual/kernel \
+			virtual/bootloader \
 			"
 
 # SD card image name
