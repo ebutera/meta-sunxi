@@ -11,6 +11,6 @@ Tested with core-image-base.
 
 Maintainers:
 
-Nicolas Aguirre <aguirre.nicolas@gmail.com>
-Enrico Butera <ebutera@users.berlios.de>
-Sergey Lapin <slapin@ossfans.org>
+* Nicolas Aguirre <aguirre.nicolas@gmail.com>
+* Enrico Butera <ebutera@users.berlios.de>
+* Sergey Lapin <slapin@ossfans.org>
