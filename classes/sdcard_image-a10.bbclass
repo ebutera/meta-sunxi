@@ -2,7 +2,7 @@ inherit image_types
 
 #
 # Create an image that can by written onto a SD card using dd.
-# Originally written for rasberrypi adapt for the needs of allwinner a10 based boards
+# Originally written for rasberrypi adapt for the needs of allwinner sunxi based boards
 #
 # The disk layout used is:
 #
@@ -27,7 +27,7 @@ IMAGE_ROOTFS_ALIGNMENT = "2048"
 SDIMG_ROOTFS_TYPE ?= "ext3"
 SDIMG_ROOTFS = "${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_a10-sdimg += " \
+IMAGE_DEPENDS_sunxi-sdimg += " \
 			parted-native \
 			mtools-native \
 			dosfstools-native \
@@ -36,11 +36,11 @@ IMAGE_DEPENDS_a10-sdimg += " \
                         sunxi-board-fex \
 			"
 # SD card image name
-SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.a10-sdimg"
+SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
 
-IMAGE_CMD_a10-sdimg () {
+IMAGE_CMD_sunxi-sdimg () {
 
 	# Align partitions
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
