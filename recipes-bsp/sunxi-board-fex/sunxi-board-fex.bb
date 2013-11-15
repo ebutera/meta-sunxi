@@ -11,6 +11,7 @@ PR = "r3"
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 
 S = "${WORKDIR}/git"
+SUNXI_FEX_FILE_mele = "sys_config/a10/mele_a1000.fex"
 SUNXI_FEX_FILE_olinuxino-a10s = "sys_config/a10s/a10s-olinuxino-m.fex"
 SUNXI_FEX_FILE_olinuxino-a13 = "sys_config/a13/a13-olinuxino.fex"
 SUNXI_FEX_FILE_cubieboard = "sys_config/a10/cubieboard.fex"
@@ -49,4 +50,4 @@ do_populate_sysroot[noexec] = "1"
 
 # Remember to add machine entry to IMAGE_DEPENDS in sdcard_image-a10.bbclass
 # when adding new machines.
-COMPATIBLE_MACHINE = "(olinuxino-a10s|olinuxino-a13|cubieboard|cubieboard2)"
+COMPATIBLE_MACHINE = "(mele|olinuxino-a10s|olinuxino-a13|cubieboard|cubieboard2)"
