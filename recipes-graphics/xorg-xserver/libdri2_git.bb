@@ -1,7 +1,9 @@
 
-DESCRIPTION = "X.Org X server -- A10/A13 display driver"
+DESCRIPTION = "Library for the DRI2 extension to the X Window System"
 
-PR = "1"
+PR = "2"
+
+DEPENDS = "libdrm libxext xextproto libxfixes"
 
 LICENSE = "MIT-X"
 LIC_FILES_CHKSUM = "file://COPYING;md5=827da9afab1f727f2a66574629e0f39c"
