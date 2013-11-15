@@ -27,56 +27,14 @@ IMAGE_ROOTFS_ALIGNMENT = "2048"
 SDIMG_ROOTFS_TYPE ?= "ext3"
 SDIMG_ROOTFS = "${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_a10-sdimg = " \
+IMAGE_DEPENDS_a10-sdimg += " \
 			parted-native \
 			mtools-native \
 			dosfstools-native \
 			virtual/kernel \
 			virtual/bootloader \
+                        sunxi-board-fex \
 			"
-
-# Compile FEX file
-IMAGE_DEPENDS_a10-sdimg_olinuxino-a10s = " \
-			sunxi-board-fex \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
-			"
-IMAGE_DEPENDS_a10-sdimg_cubieboard2 = " \
-			sunxi-board-fex \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
-			"
-IMAGE_DEPENDS_a10-sdimg_cubieboard = " \
-			sunxi-board-fex \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
-			"
-IMAGE_DEPENDS_a10-sdimg_olinuxino-a13 = " \
-			sunxi-board-fex \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
-			"
-IMAGE_DEPENDS_a10-sdimg_mele = " \
-			sunxi-board-fex \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
-			"
-
 # SD card image name
 SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.a10-sdimg"
 
