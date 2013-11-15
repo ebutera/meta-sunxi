@@ -60,6 +60,15 @@ IMAGE_DEPENDS_a10-sdimg_cubieboard = " \
 			virtual/kernel \
 			virtual/bootloader \
 			"
+IMAGE_DEPENDS_a10-sdimg_olinuxino-a13 = " \
+			sunxi-board-fex \
+			parted-native \
+			mtools-native \
+			dosfstools-native \
+			virtual/kernel \
+			virtual/bootloader \
+			"
+
 
 # SD card image name
 SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.a10-sdimg"
