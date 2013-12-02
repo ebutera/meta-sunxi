@@ -4,7 +4,7 @@ DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
 KERNEL_IMAGETYPE = "uImage"
 
-COMPATIBLE_MACHINE = "(mele|olinuxino-a13|olinuxino-a10s|cubieboard|cubieboard2)"
+COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|cubieboard|cubieboard2)"
 
 PR = "12"
 
