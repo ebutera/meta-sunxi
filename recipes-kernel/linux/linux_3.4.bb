@@ -6,11 +6,11 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|cubieboard|cubieboard2)"
 
-PR = "12"
+PR = "13"
 
-PV = "3.4.61"
+PV = "3.4.67"
 # Last tested version by myself"
-SRCREV_pn-${PN} = "9ee9fc5f0988df5677f0f142b5b88a8988d283d7"
+SRCREV_pn-${PN} = "a7350cb6a9ec1aae510e26cdc730f05f12e13f9f"
 
 MACHINE_KERNEL_PR_append = "a"
 
