@@ -7,7 +7,7 @@ PREFERRED_PROVIDER_virtual/egl ?= "sunxi-mali"
 XSERVER += "sunxi-mali \
             sunxi-mali-dev"
 
-MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
+MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
  kernel-module-mali \
  kernel-module-mali-drm \
   "
