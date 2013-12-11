@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0ceb3372c9595f0a
 DEPENDS = "sunxi-tools-native"
 SRCREV = "c9f031fb2d30101cda5a988c66715101bc3fea0b"
 PV = "1.0"
-PR = "r3"
+PR = "r4"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 
@@ -15,6 +15,7 @@ SUNXI_FEX_FILE_mele = "sys_config/a10/mele_a1000.fex"
 SUNXI_FEX_FILE_meleg = "sys_config/a10/mele_a1000g.fex"
 SUNXI_FEX_FILE_olinuxino-a10s = "sys_config/a10s/a10s-olinuxino-m.fex"
 SUNXI_FEX_FILE_olinuxino-a13 = "sys_config/a13/a13-olinuxino.fex"
+SUNXI_FEX_FILE_olinuxino-a20 = "sys_config/a20/a20-olinuxino_micro.fex"
 SUNXI_FEX_FILE_cubieboard = "sys_config/a10/cubieboard.fex"
 SUNXI_FEX_FILE_cubieboard2 = "sys_config/a20/cubieboard2.fex"
 
@@ -51,4 +52,4 @@ do_populate_sysroot[noexec] = "1"
 
 # Remember to add machine entry to IMAGE_DEPENDS in sdcard_image-a10.bbclass
 # when adding new machines.
-COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a10s|olinuxino-a13|cubieboard|cubieboard2)"
+COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a10s|olinuxino-a13|olinuxino-a20|cubieboard|cubieboard2)"
