@@ -14,6 +14,8 @@ DEPENDS = "virtual/libx11 libxau libxdmcp libdrm dri2proto libdri2"
 EXCLUDE_FROM_WORLD = "1"
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
 
+RPROVIDES_${PN} += "libEGL.so libGLESv2.so libGLES_CM.so libUMP.so libMali.so"
+
 inherit distro_features_check
 REQUIRED_DISTRO_FEATURES = "opengl"
 
