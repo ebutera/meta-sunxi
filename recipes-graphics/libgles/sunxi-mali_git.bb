@@ -1,11 +1,11 @@
 DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 LICENSE = "proprietary-binary"
 
-INC_PR = "r4"
+INC_PR = "r5"
 
 LIC_FILES_CHKSUM = "file://README;md5=a103ac69c166fcd98a67a9917dd7affd"
 
-COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|olinuxino-a13|olinuxino-a20)"
+COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|cubietruck|olinuxino-a13|olinuxino-a20)"
 
 DEPENDS = "virtual/libx11 libxau libxdmcp libdrm dri2proto libdri2"
 
@@ -13,6 +13,8 @@ DEPENDS = "virtual/libx11 libxau libxdmcp libdrm dri2proto libdri2"
 # explicitly depends upon them.
 EXCLUDE_FROM_WORLD = "1"
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
+
+RPROVIDES_${PN} += "libEGL.so libGLESv2.so libGLES_CM.so libUMP.so libMali.so"
 
 inherit distro_features_check
 REQUIRED_DISTRO_FEATURES = "opengl"
