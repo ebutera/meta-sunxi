@@ -35,6 +35,9 @@ IMAGE_DEPENDS_sunxi-sdimg += " \
 			virtual/bootloader \
                         sunxi-board-fex \
 			"
+
+rootfs[depends] += "sunxi-board-fex:do_deploy"
+
 # SD card image name
 SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
@@ -62,7 +65,7 @@ IMAGE_CMD_sunxi-sdimg () {
 	# Create a vfat image with boot files
 	BOOT_BLOCKS=$(LC_ALL=C parted -s ${SDIMG} unit b print | awk '/ 1 / { print substr($4, 1, length($4 -1)) / 512 /2 }')
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
-	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::uImage
+	mcopy -i ${WORKDIR}/boot.img -s ${STAGING_DIR_HOST}/usr/src/kernel/${KERNEL_IMAGETYPE} ::uImage
 	if [ -e "${DEPLOY_DIR_IMAGE}/fex.bin" ]
 	then
 		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/fex.bin ::script.bin
