@@ -4,11 +4,11 @@ DESCRIPTION = "Handler for Allwinner's FEX files"
 LICENSE = "CC0-1.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0ceb3372c9595f0a8067e55da801e4a1"
 DEPENDS = "sunxi-tools-native"
-SRCREV = "c9f031fb2d30101cda5a988c66715101bc3fea0b"
 PV = "1.0"
-PR = "r5"
+PR = "r6"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
+SRCREV = "0131ba10dddc0c25639fceb25e4df20553f4f61d"
 
 S = "${WORKDIR}/git"
 SUNXI_FEX_FILE_mele = "sys_config/a10/mele_a1000.fex"

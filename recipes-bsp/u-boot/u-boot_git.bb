@@ -17,8 +17,8 @@ DEFAULT_PREFERENCE_cubietruck="1"
 
 SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi"
 
-SRCREV = "8a4621c488f33089d831168bfa5bae210a5684c8"
-PR = "r9"
+SRCREV = "c8bcaed26e019a90325d20b9bf182de7d724536d"
+PR = "r10"
 
 
 S = "${WORKDIR}/git"
