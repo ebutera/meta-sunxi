@@ -10,7 +10,5 @@ PREFERRED_VERSION_linux-libc-headers = "3.4.61"
 
 KERNEL_IMAGETYPE = "uImage"
 
-SPL_BINARY = "sunxi-spl.bin"
-
 IMAGE_CLASSES += "sdcard_image-sunxi"
 IMAGE_FSTYPES += "ext3 tar.gz sunxi-sdimg"
