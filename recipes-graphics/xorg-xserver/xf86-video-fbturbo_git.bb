@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=f91dc3ee5ce59eb4b528e67e98a31266"
 
 DEPENDS += "sunxi-mali"
 
-PE = "1"
+PE = "3"
 PV = "0.3.1+git${SRCPV}"
 SRCREV_pn-${PN} = "eed17d5586c3b4dfcf0b5976e8b947b171d4897c"
 
