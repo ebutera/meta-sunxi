@@ -13,6 +13,8 @@ inherit image_types
 #
 #
 
+# This image depends on ext3 image
+IMAGE_TYPEDEP_sunxi-sdimg = "ext3"
 
 # Boot partition volume id
 BOOTDD_VOLUME_ID ?= "${MACHINE}"
