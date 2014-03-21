@@ -3,7 +3,7 @@ DESCRIPTION = "Library for the DRI2 extension to the X Window System"
 LICENSE = "MIT-X"
 LIC_FILES_CHKSUM = "file://COPYING;md5=827da9afab1f727f2a66574629e0f39c"
 
-DEPENDS = "libdrm libxext xextproto libxfixes"
+DEPENDS = "libdrm libxext xextproto libxfixes dri2proto"
 
 PE = "1"
 PV = "1.0.0+git${SRCPV}"
