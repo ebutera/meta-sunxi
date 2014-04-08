@@ -5,8 +5,6 @@ LIC_FILES_CHKSUM = "file://README;md5=a103ac69c166fcd98a67a9917dd7affd"
 
 COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|cubietruck|olinuxino-a10|olinuxino-a13|olinuxino-a20)"
 
-DEPENDS = "virtual/libx11 libxau libxdmcp libdrm dri2proto libdri2"
-
 # These libraries shouldn't get installed in world builds unless something
 # explicitly depends upon them.
 EXCLUDE_FROM_WORLD = "1"
@@ -20,8 +18,15 @@ SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git"
 
 S = "${WORKDIR}/git"
 
+DEPENDS = "libdrm dri2proto"
+
+PACKAGECONFIG ??= "${@base_contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
+PACKAGECONFIG[wayland] = "EGL_TYPE=framebuffer,,,"
+PACKAGECONFIG[x11] = "EGL_TYPE=x11,,virtual/libx11 libxau libxdmcp libdri2,"
+
+
 do_configure() {
-         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf EGL_TYPE=x11 make config
+         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make config
 }
 
 do_install() {
