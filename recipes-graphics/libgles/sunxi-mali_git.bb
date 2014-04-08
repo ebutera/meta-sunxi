@@ -18,7 +18,7 @@ SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git"
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libdrm dri2proto"
+DEPENDS = "libdrm dri2proto libump"
 
 PACKAGECONFIG ??= "${@base_contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 PACKAGECONFIG[wayland] = "EGL_TYPE=framebuffer,,,"
