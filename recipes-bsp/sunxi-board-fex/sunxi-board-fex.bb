@@ -4,10 +4,11 @@ DESCRIPTION = "Handler for Allwinner's FEX files"
 LICENSE = "CC0-1.0"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/${LICENSE};md5=0ceb3372c9595f0a8067e55da801e4a1"
 DEPENDS = "sunxi-tools-native"
-PV = "1.0"
-PR = "r6"
+PV = "1.1+git${SRCPV}"
+PR = "r0"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
+# Increase PV with SRCREV change
 SRCREV = "5e63e3da42254d3c23eb6436a03ed1d32fb11e98"
 
 S = "${WORKDIR}/git"
