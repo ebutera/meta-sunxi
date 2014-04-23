@@ -53,6 +53,4 @@ do_package_write_rpm[noexec] = "1"
 do_package_write_deb[noexec] = "1"
 do_populate_sysroot[noexec] = "1"
 
-# Remember to add machine entry to IMAGE_DEPENDS in sdcard_image-a10.bbclass
-# when adding new machines.
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a10s|olinuxino-a10|olinuxino-a13|olinuxino-a20|cubieboard|cubieboard2|cubietruck)"
