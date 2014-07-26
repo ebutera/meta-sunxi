@@ -12,7 +12,7 @@ Tested with core-image-base.
 Maintainers:
 
 * Nicolas Aguirre <aguirre.nicolas@gmail.com>
-* Enrico Butera <ebutera@users.berlios.de>
+* Enrico Butera <ebutera@users.sourceforge.net>
 * Sergey Lapin <slapin@ossfans.org>
 
 
