@@ -6,15 +6,20 @@ KERNEL_IMAGETYPE = "uImage"
 
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|olinuxino-a10|olinuxino-a20|cubieboard|cubieboard2|cubietruck)"
 
-PV = "3.4.79"
+PV = "3.4.90"
+PR = "r1"
 # Last tested version by myself
-SRCREV_pn-${PN} = "b6eb2b9b770537ff320c52342174d2bed56b574d"
+SRCREV_pn-${PN} = "e37d760b363888f3a65cd6455c99a75cac70a7b8"
 
 MACHINE_KERNEL_PR_append = "a"
 
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
+        http://archlinuxarm.org/builder/src/0001-cgroup-add-xattr-support-sunxi.patch;name=cgroup-patch \
         file://defconfig \
         "
+
+SRC_URI[cgroup-patch.md5sum] = "4aa5087e3396f3179b61ccd478e9e604"
+SRC_URI[cgroup-patch.sha256sum] = "f9f9cb55eb6f8abf322830afd7a5f4a090e539add75e0ed1f1016b5351a9b533"
 
 S = "${WORKDIR}/git"
 
