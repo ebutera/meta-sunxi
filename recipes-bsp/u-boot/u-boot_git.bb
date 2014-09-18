@@ -21,7 +21,7 @@ SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sun
 
 PE = "1"
 PV = "v2014.04+git${SRCPV}"
-SRCREV = "36080eb05e9a1e96d58e3168631d3cc9c612a0e3"
+SRCREV = "ee425f94b488a4304c136a171bb8fdec0d835032"
 
 
 S = "${WORKDIR}/git"
