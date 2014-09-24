@@ -2,8 +2,6 @@ require linux.inc
 
 DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
-KERNEL_IMAGETYPE = "uImage"
-
 COMPATIBLE_MACHINE = "(mele|meleg|olinuxino-a13|olinuxino-a10s|olinuxino-a10|olinuxino-a20|olinuxino-a20som|cubieboard|cubieboard2|cubietruck)"
 
 PV = "3.4.90"
