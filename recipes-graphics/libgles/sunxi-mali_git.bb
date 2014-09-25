@@ -1,6 +1,6 @@
 DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 
-LICENSE = "proprietary-binary"
+LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://README;md5=1b81a178e80ee888ee4571772699ab2c"
 
 COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|cubietruck|olinuxino-a10|olinuxino-a13|olinuxino-a20|olinuxiono-a20som)"
