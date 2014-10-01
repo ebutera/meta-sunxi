@@ -3,7 +3,7 @@ DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://README;md5=1b81a178e80ee888ee4571772699ab2c"
 
-COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|cubietruck|olinuxino-a10|olinuxino-a13|olinuxino-a20|olinuxiono-a20som)"
+COMPATIBLE_MACHINE = "(mele|meleg|cubieboard|cubieboard2|cubietruck|olinuxino-a10|olinuxino-a13|olinuxino-a20|olinuxiono-a20som|olinuxiono-a20lime)"
 
 # These libraries shouldn't get installed in world builds unless something
 # explicitly depends upon them.
@@ -33,7 +33,7 @@ do_configure() {
 do_install() {
     install -d ${D}${libdir}
     install -d ${D}${includedir}
-    
+
     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install
     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install -C include
 
