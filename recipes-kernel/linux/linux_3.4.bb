@@ -1,4 +1,4 @@
-require linux.inc
+require recipes-kernel/linux/linux.inc
 
 DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
