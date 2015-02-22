@@ -1,4 +1,6 @@
-require u-boot.inc
+DESCRIPTION = "U-Boot port for sunxi"
+
+require recipes-bsp/u-boot/u-boot.inc
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
@@ -23,9 +25,10 @@ DEFAULT_PREFERENCE_bananapi="1"
 SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi"
 
 PE = "1"
-PV = "v2014.04+git${SRCPV}"
-SRCREV = "ee425f94b488a4304c136a171bb8fdec0d835032"
 
+PV = "v2014.04+git${SRCPV}"
+# Corresponds 2014.04 in Makefile
+SRCREV = "ea1ac32bf76eb60baef474c2516fc431b381d952"
 
 S = "${WORKDIR}/git"
 
