@@ -7,6 +7,7 @@ COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|mele|olinuxino
 inherit kernel
 
 require recipes-kernel/linux/linux-dtb.inc
+require linux.inc
 
 # Pull in the devicetree files into the rootfs
 RDEPENDS_kernel-base += "kernel-devicetree"
