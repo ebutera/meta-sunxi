@@ -2,7 +2,7 @@ require linux.inc
 
 DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
-COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|forfun-q88db|mele|meleg|olinuxino-a10|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a13som|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a20som)"
+COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 
 PV = "3.4.90"
 PR = "r1"

@@ -2,7 +2,7 @@ SECTION = "kernel"
 DESCRIPTION = "Mainline Linux kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-COMPATIBLE_MACHINE = "(bananapi|cubieboard|cubieboard2|cubietruck|mele|olinuxino-a10lime|olinuxino-a10s|olinuxino-a13|olinuxino-a20|olinuxino-a20lime|olinuxino-a20lime2)"
+COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 
 inherit kernel
 
