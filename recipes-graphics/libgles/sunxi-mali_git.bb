@@ -15,7 +15,8 @@ inherit distro_features_check
 REQUIRED_DISTRO_FEATURES = "opengl"
 
 SRCREV_pn-${PN} = "d343311efc8db166d8371b28494f0f27b6a58724"
-SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git"
+SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git \
+           file://0001-Add-EGLSyncKHR-EGLTimeKHR-and-GLChar-definition.patch"
 
 S = "${WORKDIR}/git"
 
