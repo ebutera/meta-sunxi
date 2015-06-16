@@ -22,12 +22,16 @@ There is a custom U-Boot and Kernel version for sunxi devices which includes som
 These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline 
 
 If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), change the file
-/conf/machine/include/sunxi.inc 
-and set "PREFERRED_PROVIDER_u-boot" and "PREFERRED_PROVIDER_virtual/bootloader" to "u-boot-sunxi" and PREFERRED_PROVIDER_virtual/kernel to "linux-sunxi".
+/conf/machine/include/sunxi.inc and set 
+
+	PREFERRED_PROVIDER_u-boot=u-boot-sunxi
+	PREFERRED_PROVIDER_virtual/bootloader=u-boot-sunxi
+	PREFERRED_PROVIDER_virtual/kernel=linux-sunxi
 
 If you already have built the mainline versions it might be necessary to reset the build directories with:
-bitbake -c clean linux
-bitbake -c clean u-boot
+
+	bitbake -c clean linux
+	bitbake -c clean u-boot
 
 
 Performance
