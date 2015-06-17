@@ -15,6 +15,23 @@ Maintainers:
 * Enrico Butera <ebutera@users.sourceforge.net>
 * Sergey Lapin <slapin@ossfans.org>
 
+Kernel / U-Boot Version
+===========
+Most Allwinner devices and hardware are supported in mainline kernel and U-Boot, so this layer builds mainline by default.
+There is a custom U-Boot and Kernel version for sunxi devices which includes some special drivers not mainlined.
+These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline 
+
+If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), change the file
+/conf/machine/include/sunxi.inc and set 
+
+	PREFERRED_PROVIDER_u-boot=u-boot-sunxi
+	PREFERRED_PROVIDER_virtual/bootloader=u-boot-sunxi
+	PREFERRED_PROVIDER_virtual/kernel=linux-sunxi
+
+If you already have built the mainline versions it might be necessary to reset the build directories with:
+
+	bitbake -c clean linux
+	bitbake -c clean u-boot
 
 
 Performance
