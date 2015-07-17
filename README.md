@@ -24,9 +24,9 @@ These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may s
 If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), change the file
 /conf/machine/include/sunxi.inc and set 
 
-	PREFERRED_PROVIDER_u-boot=u-boot-sunxi
-	PREFERRED_PROVIDER_virtual/bootloader=u-boot-sunxi
-	PREFERRED_PROVIDER_virtual/kernel=linux-sunxi
+	PREFERRED_PROVIDER_u-boot="u-boot-sunxi"
+	PREFERRED_PROVIDER_virtual/bootloader="u-boot-sunxi"
+	PREFERRED_PROVIDER_virtual/kernel="linux-sunxi"
 
 If you already have built the mainline versions it might be necessary to reset the build directories with:
 
