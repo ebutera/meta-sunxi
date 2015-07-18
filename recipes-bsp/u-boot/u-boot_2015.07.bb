@@ -25,15 +25,11 @@ DEFAULT_PREFERENCE_sun4i="1"
 DEFAULT_PREFERENCE_sun5i="1"
 DEFAULT_PREFERENCE_sun7i="1"
 
-# Mainline U-Boot uses different names for some boards
-UBOOT_MACHINE_olinuxino-a20 = "A20-OLinuXino_MICRO_config"
-UBOOT_MACHINE_olinuxino-a10s = "A10s-OLinuXino-M_config"
-
 SRC_URI += "file://boot.cmd"
 
-SRCREV = "dfc8bb1f16f7d7c20b7446da95c23f247a02e583"
+SRCREV = "33711bdd4a4dce942fb5ae85a68899a8357bdd94"
 
-PV = "v2015.07-rc2${SRCPV}"
+PV = "v2015.07${SRCPV}"
 
 PE = "1"
 
