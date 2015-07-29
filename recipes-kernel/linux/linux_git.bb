@@ -12,11 +12,17 @@ require linux.inc
 # Pull in the devicetree files into the rootfs
 RDEPENDS_kernel-base += "kernel-devicetree"
 
+# Default is to use stable kernel version
+# If you want to use latest git version set to "1"
+DEFAULT_PREFERENCE = "-1" 
+
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
-PV = "4.1.2"
-SRCREV_pn-${PN} = "5cf9896dc5c72a6c68c36140568b755f697f7760"
-SRC_URI += "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=git;branch=linux-4.1.y \
+# 4.2 rc4
+PV = "4.2"
+SRCREV_pn-${PN} = "cbfe8fa6cd672011c755c3cd85c9ffd4e2d10a6f"
+
+SRC_URI += "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
         file://defconfig \
         "
 S = "${WORKDIR}/git"

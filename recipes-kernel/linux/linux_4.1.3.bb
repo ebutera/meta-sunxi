@@ -14,9 +14,9 @@ RDEPENDS_kernel-base += "kernel-devicetree"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
-PV = "4.0.5"
-SRCREV_pn-${PN} = "be4cb235441a691ee63ba5e00843a9c210be5b8a"
-SRC_URI += "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=git;branch=linux-4.0.y \
+SRC_URI[md5sum] = "96c2c77b1c54ba01cfd8fc2d13fbf828"
+SRC_URI[sha256sum] = "96dd2c30984408a8a2211463618c3564514239f1e4335f6bc461c4b9a9bae30b"
+
+SRC_URI += "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://defconfig \
         "
-S = "${WORKDIR}/git"
