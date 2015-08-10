@@ -16,6 +16,7 @@ DEFAULT_PREFERENCE_sun7i="1"
 # Sunxi U-Boot uses different names for some boards
 UBOOT_MACHINE_olinuxino-a20 = "A20-OLinuXino-Micro_config"
 UBOOT_MACHINE_olinuxino-a10s = "A10s-OLinuXino-Micro_config"
+UBOOT_MACHINE_meleg = "Mele_A1000G_config"
 
 SRC_URI = "git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi"
 
