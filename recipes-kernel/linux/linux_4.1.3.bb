@@ -13,6 +13,8 @@ require linux.inc
 RDEPENDS_kernel-base += "kernel-devicetree"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
+
+S = "${WORKDIR}/linux-${PV}"
 	
 SRC_URI[md5sum] = "96c2c77b1c54ba01cfd8fc2d13fbf828"
 SRC_URI[sha256sum] = "96dd2c30984408a8a2211463618c3564514239f1e4335f6bc461c4b9a9bae30b"
