@@ -26,7 +26,7 @@ BOOT_SPACE ?= "20480"
 IMAGE_ROOTFS_ALIGNMENT = "2048"
 
 # Use an uncompressed ext3 by default as rootfs
-SDIMG_ROOTFS_TYPE ?= "ext3"
+SDIMG_ROOTFS_TYPE ?= "ext4"
 SDIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
 IMAGE_DEPENDS_sunxi-sdimg += " \
