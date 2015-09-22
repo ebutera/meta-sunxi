@@ -11,7 +11,7 @@ COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 
 SRC_URI = "git://github.com/linux-sunxi/sunxi-boards.git;protocol=git"
 # Increase PV with SRCREV change
-SRCREV = "bf02cb81d1fe5996758322dc74e66808c1c7ad38"
+SRCREV = "496ef0fbd166cc2395daa76dd3c359357420963d"
 
 S = "${WORKDIR}/git"
 

@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 PV = "1.0+git${SRCPV}"
 PKGV = "1.0+git${GITPKGV}"
 PR = "r3"
-SRCREV = "ed6f7969d80b91048b0ed95ccb61cc98f46fead7"
+SRCREV = "568c7a0e81fc5d52189710c6d832677aa8770b16"
 
 DEPENDS += "libusb"
 
@@ -31,5 +31,4 @@ do_install() {
     install -m 755 ${S}/fexc ${D}/${bindir}
     install -m 755 ${S}/nand-part ${D}/${bindir}
     install -m 755 ${S}/pio ${D}/${bindir}
-    install -m 755 ${S}/usb-boot ${D}/${bindir}
 }
