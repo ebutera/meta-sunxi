@@ -9,6 +9,7 @@ COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 # explicitly depends upon them.
 EXCLUDE_FROM_WORLD = "1"
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
+RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
 
 inherit distro_features_check
 REQUIRED_DISTRO_FEATURES = "opengl"
@@ -31,6 +32,7 @@ PACKAGECONFIG[x11] = "EGL_TYPE=x11,,virtual/libx11 libxau libxdmcp libdri2,"
 # Inhibit warnings about files being stripped, we can't do anything about it.
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_SYSROOT_STRIP = "1"
 
 do_configure() {
          DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make config
