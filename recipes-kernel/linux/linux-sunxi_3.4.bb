@@ -13,6 +13,7 @@ MACHINE_KERNEL_PR_append = "a"
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
         file://0001-compiler-gcc5.patch \
         file://0002-use-static-inline-in-ARM-ftrace.patch \
+        file://0001-gcc5-fixes.patch \
         file://defconfig \
         "
 
