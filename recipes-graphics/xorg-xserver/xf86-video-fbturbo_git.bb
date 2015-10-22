@@ -5,7 +5,7 @@ DESCRIPTION = "X.Org X server -- A10/A13 display driver"
 LICENSE = "MIT-X"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f91dc3ee5ce59eb4b528e67e98a31266"
 
-DEPENDS += "sunxi-mali libump"
+DEPENDS += "sunxi-mali libump xf86driproto"
 
 PE = "3"
 PV = "0.5.1+git${SRCPV}"

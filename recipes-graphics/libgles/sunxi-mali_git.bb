@@ -11,14 +11,12 @@ EXCLUDE_FROM_WORLD = "1"
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
 RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
 
-inherit distro_features_check
-REQUIRED_DISTRO_FEATURES = "opengl"
-
 SRCREV_pn-${PN} = "d343311efc8db166d8371b28494f0f27b6a58724"
 SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git \
            file://0001-Add-EGLSyncKHR-EGLTimeKHR-and-GLChar-definition.patch \
            file://0002-Add-missing-GLchar-definition.patch \
            file://0003-Fix-sed-to-replace-by-the-correct-var.patch \
+           file://0001-fix-test-build.patch \
            "
 
 S = "${WORKDIR}/git"
@@ -73,10 +71,16 @@ do_install() {
         rm ${D}${libdir}/$flib
         ln -sf libMali.so.3 ${D}${libdir}/$flib
     done
+
+    DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make test
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/test/test ${D}${bindir}/sunximali-test
 }
 
 # Packages like xf86-video-fbturbo dlopen() libUMP.so, so we do need to ship the .so files in ${PN}
+PACKAGES =+ "${PN}-test"
 FILES_${PN} += "${libdir}/lib*.so"
 FILES_${PN}-dev = "${includedir} ${libdir}/pkgconfig/*"
+FILES_${PN}-test = "${bindir}/sunximali-test"
 # These are closed binaries generated elsewhere so don't check ldflags & text relocations
 INSANE_SKIP_${PN} = "dev-so ldflags textrel"

@@ -21,8 +21,9 @@ Most Allwinner devices and hardware are supported in mainline kernel and U-Boot,
 There is a custom U-Boot and Kernel version for sunxi devices which includes some special drivers not mainlined.
 These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline 
 
-If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), change the file
-/conf/machine/include/sunxi.inc and set 
+If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), either:
+- change the file conf/machine/include/sunxi.inc to include the following block
+- edit your conf/local.conf to add the following block
 
 	PREFERRED_PROVIDER_u-boot="u-boot-sunxi"
 	PREFERRED_PROVIDER_virtual/bootloader="u-boot-sunxi"
@@ -33,6 +34,10 @@ If you already have built the mainline versions it might be necessary to reset t
 	bitbake -c clean linux
 	bitbake -c clean u-boot
 
+Also, older kernel versions such as this don't build successfully with any gcc version 5.0 or newer. Since gcc-5.2 is the current
+default compiler on master, if you wish to build this kernel with master you'll need to add the following to your conf/local.conf:
+
+	GCCVERSION = "4.9%"
 
 Performance
 ===========
