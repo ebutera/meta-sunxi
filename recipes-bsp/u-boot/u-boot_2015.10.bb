@@ -25,11 +25,12 @@ DEFAULT_PREFERENCE_sun4i="1"
 DEFAULT_PREFERENCE_sun5i="1"
 DEFAULT_PREFERENCE_sun7i="1"
 
-SRC_URI += "file://boot.cmd"
+SRC_URI += "file://boot.cmd \
+"
 
-SRCREV = "33711bdd4a4dce942fb5ae85a68899a8357bdd94"
+SRCREV = "5ec0003b19cbdf06ccd6941237cbc0d1c3468e2d"
 
-PV = "v2015.07${SRCPV}"
+PV = "v2015.10${SRCPV}"
 
 PE = "1"
 
