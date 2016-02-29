@@ -14,13 +14,13 @@ RDEPENDS_kernel-base += "kernel-devicetree"
 
 # Default is to use stable kernel version
 # If you want to use latest git version set to "1"
-DEFAULT_PREFERENCE = "-1" 
+DEFAULT_PREFERENCE = "1" 
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
-# 4.4 rc5
-PV = "4.3+4.4rc5.git${SRCPV}"
-SRCREV_pn-${PN} = "9f9499ae8e6415cefc4fe0a96ad0e27864353c89"
+# 4.5 rc6
+PV = "4.4+4.5rc6.git${SRCPV}"
+SRCREV_pn-${PN} = "fc77dbd34c5c99bce46d40a2491937c3bcbd10af"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
         file://defconfig \
