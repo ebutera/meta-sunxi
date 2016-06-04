@@ -33,7 +33,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 
 do_configure() {
-         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make config
+         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf make ${EXTRA_OEMAKE} config
 }
 
 do_install() {
@@ -72,7 +72,7 @@ do_install() {
         ln -sf libMali.so.3 ${D}${libdir}/$flib
     done
 
-    DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make test
+    DESTDIR=${D}/ VERSION=r3p0 ABI=armhf make ${EXTRA_OEMAKE} test
     install -d ${D}${bindir}
     install -m 0755 ${S}/test/test ${D}${bindir}/sunximali-test
 }
