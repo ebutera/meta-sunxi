@@ -23,7 +23,7 @@ S = "${WORKDIR}/git"
 
 DEPENDS = "libdrm dri2proto libump"
 
-PACKAGECONFIG ??= "${@base_contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@base_contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
+PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 PACKAGECONFIG[wayland] = "EGL_TYPE=framebuffer,,,"
 PACKAGECONFIG[x11] = "EGL_TYPE=x11,,virtual/libx11 libxau libxdmcp libdri2,"
 
@@ -33,7 +33,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
 
 do_configure() {
-         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make config
+         DESTDIR=${D}/ VERSION=r3p0 ABI=armhf make ${EXTRA_OEMAKE} config
 }
 
 do_install() {
@@ -72,7 +72,7 @@ do_install() {
         ln -sf libMali.so.3 ${D}${libdir}/$flib
     done
 
-    DESTDIR=${D}/ VERSION=r3p0 ABI=armhf ${EXTRA_OECONF} make test
+    DESTDIR=${D}/ VERSION=r3p0 ABI=armhf make ${EXTRA_OEMAKE} test
     install -d ${D}${bindir}
     install -m 0755 ${S}/test/test ${D}${bindir}/sunximali-test
 }
