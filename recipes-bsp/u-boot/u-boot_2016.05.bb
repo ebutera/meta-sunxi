@@ -28,9 +28,9 @@ DEFAULT_PREFERENCE_sun7i="1"
 SRC_URI = "git://git.denx.de/u-boot.git;branch=master \
            file://boot.cmd"
 
-SRCREV = "df61a74e6845ec9bdcdd48d2aff5e9c2c6debeaa"
+SRCREV = "aeaec0e682f45b9e0c62c522fafea353931f73ed"
 
-PV = "v2016.03${SRCPV}"
+PV = "v2016.05${SRCPV}"
 
 PE = "1"
 
