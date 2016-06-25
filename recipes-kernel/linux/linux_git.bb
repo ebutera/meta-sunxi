@@ -19,7 +19,7 @@ DEFAULT_PREFERENCE = "-1"
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
 # 4.7 rc4
-PV = "4.4+4.7rc4.git${SRCPV}"
+PV = "4.6+4.7rc4.git${SRCPV}"
 SRCREV_pn-${PN} = "33688abb2802ff3a230bd2441f765477b94cc89e"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
