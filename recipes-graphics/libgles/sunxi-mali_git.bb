@@ -9,7 +9,17 @@ COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 # explicitly depends upon them.
 EXCLUDE_FROM_WORLD = "1"
 PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
-RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
+
+# There's only hardfp version available
+python __anonymous() {
+    tunes = bb.data.getVar("TUNE_FEATURES", d, 1)
+    if not tunes:
+        return
+    if "callconvention-hard" not in tunes:
+        pkgn = bb.data.getVar("PN", d, 1)
+        pkgv = bb.data.getVar("PV", d, 1)
+        raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
+}
 
 SRCREV_pn-${PN} = "d343311efc8db166d8371b28494f0f27b6a58724"
 SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git \
@@ -79,8 +89,12 @@ do_install() {
 
 # Packages like xf86-video-fbturbo dlopen() libUMP.so, so we do need to ship the .so files in ${PN}
 PACKAGES =+ "${PN}-test"
+
+RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
+
 FILES_${PN} += "${libdir}/lib*.so"
 FILES_${PN}-dev = "${includedir} ${libdir}/pkgconfig/*"
 FILES_${PN}-test = "${bindir}/sunximali-test"
+
 # These are closed binaries generated elsewhere so don't check ldflags & text relocations
 INSANE_SKIP_${PN} = "dev-so ldflags textrel"
