@@ -40,5 +40,5 @@ UBOOT_ENV_SUFFIX = "scr"
 UBOOT_ENV = "boot"
 
 do_compile_append() {
-    ${S}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/boot.cmd ${WORKDIR}/${UBOOT_ENV_BINARY}
+    ${B}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/boot.cmd ${WORKDIR}/${UBOOT_ENV_BINARY}
 }
