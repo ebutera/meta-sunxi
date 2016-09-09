@@ -27,7 +27,7 @@ IMAGE_ROOTFS_ALIGNMENT = "2048"
 
 # Use an uncompressed ext3 by default as rootfs
 SDIMG_ROOTFS_TYPE ?= "ext4"
-SDIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
+SDIMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
 IMAGE_DEPENDS_sunxi-sdimg += " \
 			parted-native \
@@ -40,7 +40,7 @@ IMAGE_DEPENDS_sunxi-sdimg += " \
 rootfs[depends] += "virtual/kernel:do_deploy"
 
 # SD card image name
-SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
+SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
 
