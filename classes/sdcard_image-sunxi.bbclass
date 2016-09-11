@@ -43,6 +43,7 @@ rootfs[depends] += "virtual/kernel:do_deploy"
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
+IMAGE_CMD_sunxi-sdimg[vardepsexclude] += "IMAGEDATESTAMP"
 
 IMAGE_CMD_sunxi-sdimg () {
 
