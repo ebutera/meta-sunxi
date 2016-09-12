@@ -27,7 +27,7 @@ IMAGE_ROOTFS_ALIGNMENT = "2048"
 
 # Use an uncompressed ext3 by default as rootfs
 SDIMG_ROOTFS_TYPE ?= "ext4"
-SDIMG_ROOTFS = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
+SDIMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
 IMAGE_DEPENDS_sunxi-sdimg += " \
 			parted-native \
@@ -40,9 +40,10 @@ IMAGE_DEPENDS_sunxi-sdimg += " \
 rootfs[depends] += "virtual/kernel:do_deploy"
 
 # SD card image name
-SDIMG = "${DEPLOY_DIR_IMAGE}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
+SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
 IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
+IMAGE_CMD_sunxi-sdimg[vardepsexclude] += "IMAGEDATESTAMP"
 
 IMAGE_CMD_sunxi-sdimg () {
 
@@ -74,9 +75,9 @@ IMAGE_CMD_sunxi-sdimg () {
 	if test -n "${KERNEL_DEVICETREE}"; then
 		for DTS_FILE in ${KERNEL_DEVICETREE}; do
 			DTS_BASE_NAME=`basename ${DTS_FILE} | awk -F "." '{print $1}'`
-			if [ -e "${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb" ]; then
-				kernel_bin="`readlink ${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
-				kernel_bin_for_dtb="`readlink ${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb | sed "s,$DTS_BASE_NAME,${MACHINE},g;s,\.dtb$,.bin,g"`"
+			if [ -e ${DEPLOY_DIR_IMAGE}/"${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb" ]; then
+				kernel_bin="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
+				kernel_bin_for_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb | sed "s,$DTS_BASE_NAME,${MACHINE},g;s,\.dtb$,.bin,g"`"
 				if [ $kernel_bin = $kernel_bin_for_dtb ]; then
 					mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb ::/${DTS_BASE_NAME}.dtb
 				fi
