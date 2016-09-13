@@ -42,9 +42,6 @@ rootfs[depends] += "virtual/kernel:do_deploy"
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
-IMAGEDATESTAMP = "${@time.strftime('%Y.%m.%d',time.gmtime())}"
-IMAGE_CMD_sunxi-sdimg[vardepsexclude] += "IMAGEDATESTAMP"
-
 IMAGE_CMD_sunxi-sdimg () {
 
 	# Align partitions
@@ -96,8 +93,8 @@ IMAGE_CMD_sunxi-sdimg () {
 
 
 	# Add stamp file
-	echo "${IMAGE_NAME}-${IMAGEDATESTAMP}" > ${WORKDIR}/image-version-info
-	mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}//image-version-info ::
+	echo "${IMAGE_NAME}" > ${WORKDIR}/image-version-info
+	mcopy -i ${WORKDIR}/boot.img -v ${WORKDIR}/image-version-info ::
 
 	# Burn Partitions
 	dd if=${WORKDIR}/boot.img of=${SDIMG} conv=notrunc seek=1 bs=$(expr ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
