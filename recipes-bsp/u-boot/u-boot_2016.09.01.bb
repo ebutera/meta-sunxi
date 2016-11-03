@@ -34,6 +34,8 @@ PV = "v2016.09.01+git${SRCPV}"
 
 PE = "2"
 
+S = "${WORKDIR}/git"
+
 SPL_BINARY="u-boot-sunxi-with-spl.bin"
 
 UBOOT_ENV_SUFFIX = "scr"
