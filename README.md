@@ -31,13 +31,7 @@ If you want to switch back to sunxi versions for some reasons (no device tree av
 
 If you already have built the mainline versions it might be necessary to reset the build directories with:
 
-	bitbake -c clean linux
-	bitbake -c clean u-boot
-
-Also, older kernel versions such as this don't build successfully with any gcc version 5.0 or newer. Since gcc-5.2 is the current
-default compiler on master, if you wish to build this kernel with master you'll need to add the following to your conf/local.conf:
-
-	GCCVERSION = "4.9%"
+	bitbake -c clean linux u-boot
 
 Performance
 ===========
