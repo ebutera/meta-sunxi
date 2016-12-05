@@ -12,12 +12,12 @@ PROVIDES = "virtual/libgles1 virtual/libgles2 virtual/egl"
 
 # There's only hardfp version available
 python __anonymous() {
-    tunes = bb.data.getVar("TUNE_FEATURES", d, 1)
+    tunes = d.getVar("TUNE_FEATURES", True)
     if not tunes:
         return
     if "callconvention-hard" not in tunes:
-        pkgn = bb.data.getVar("PN", d, 1)
-        pkgv = bb.data.getVar("PV", d, 1)
+        pkgn = d.getVar("PN", True)
+        pkgv = d.getVar("PV", True)
         raise bb.parse.SkipPackage("%s-%s ONLY supports hardfp mode for now" % (pkgn, pkgv))
 }
 
