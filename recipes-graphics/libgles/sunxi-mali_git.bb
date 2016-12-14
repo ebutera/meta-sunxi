@@ -91,6 +91,7 @@ do_install() {
 PACKAGES =+ "${PN}-test"
 
 RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
+RDEPENDS_${PN}-test = "${PN}"
 
 FILES_${PN} += "${libdir}/lib*.so"
 FILES_${PN}-dev = "${includedir} ${libdir}/pkgconfig/*"
@@ -98,3 +99,4 @@ FILES_${PN}-test = "${bindir}/sunximali-test"
 
 # These are closed binaries generated elsewhere so don't check ldflags & text relocations
 INSANE_SKIP_${PN} = "dev-so ldflags textrel"
+INSANE_SKIP_${PN}-test = "dev-so ldflags textrel"
