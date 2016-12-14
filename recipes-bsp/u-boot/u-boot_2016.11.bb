@@ -19,11 +19,12 @@ file://Licenses/lgpl-2.1.txt;md5=4fbd65380cdd255951079008b364516c \
 file://Licenses/x11.txt;md5=b46f176c847b8742db02126fb8af92e2 \
 "
 
-COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
+COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i)"
 
 DEFAULT_PREFERENCE_sun4i="1"
 DEFAULT_PREFERENCE_sun5i="1"
 DEFAULT_PREFERENCE_sun7i="1"
+DEFAULT_PREFERENCE_sun8i="1"
 
 SRC_URI = "git://git.denx.de/u-boot.git;branch=master \
            file://boot.cmd"
