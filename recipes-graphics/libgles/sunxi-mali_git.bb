@@ -3,7 +3,7 @@ DESCRIPTION = "libGLES for the A10/A13 Allwinner processor with Mali 400 (X11)"
 LICENSE = "Proprietary"
 LIC_FILES_CHKSUM = "file://README;md5=1b81a178e80ee888ee4571772699ab2c"
 
-COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
+COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i)"
 
 # These libraries shouldn't get installed in world builds unless something
 # explicitly depends upon them.
@@ -91,6 +91,7 @@ do_install() {
 PACKAGES =+ "${PN}-test"
 
 RPROVIDES_${PN} += "libGLESv2.so libEGL.so libGLESv2.so libGLESv1_CM.so libMali.so"
+RDEPENDS_${PN}-test = "${PN}"
 
 FILES_${PN} += "${libdir}/lib*.so"
 FILES_${PN}-dev = "${includedir} ${libdir}/pkgconfig/*"
@@ -98,3 +99,4 @@ FILES_${PN}-test = "${bindir}/sunximali-test"
 
 # These are closed binaries generated elsewhere so don't check ldflags & text relocations
 INSANE_SKIP_${PN} = "dev-so ldflags textrel"
+INSANE_SKIP_${PN}-test = "dev-so ldflags textrel"
