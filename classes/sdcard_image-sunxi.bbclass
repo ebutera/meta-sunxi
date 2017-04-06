@@ -37,7 +37,8 @@ IMAGE_DEPENDS_sunxi-sdimg += " \
 			virtual/bootloader \
 			"
 
-rootfs[depends] += "virtual/kernel:do_deploy"
+do_rootfs[depends] += "virtual/kernel:do_deploy"
+do_rootfs[depends] += "virtual/bootloader:do_deploy"
 
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
