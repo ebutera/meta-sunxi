@@ -21,4 +21,5 @@ SRC_URI[sha256sum] = "48660806dd32fb8dcbcf5932291bf6cc7d29240070372230871e0f56fe
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://defconfig \
+        file://0001-ARM-dts-sunxi-Change-node-name-for-pwrseq-pin-on-Oli.patch \
         "
