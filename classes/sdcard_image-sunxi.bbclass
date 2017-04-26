@@ -33,12 +33,9 @@ IMAGE_DEPENDS_sunxi-sdimg += " \
 			parted-native \
 			mtools-native \
 			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
+			virtual/kernel:do_deploy \
+			virtual/bootloader:do_deploy \
 			"
-
-do_rootfs[depends] += "virtual/kernel:do_deploy"
-do_rootfs[depends] += "virtual/bootloader:do_deploy"
 
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
