@@ -1,0 +1,35 @@
+From 3116d37651d77125bf50f81f859b1278e02ccce6 Mon Sep 17 00:00:00 2001
+From: Emmanuel Vadot <manu@bidouilliste.com>
+Date: Wed, 14 Dec 2016 15:57:24 +0100
+Subject: [PATCH] ARM: dts: sunxi: Change node name for pwrseq pin on
+ Olinuxino-lime2-emmc
+
+The node name for the power seq pin is mmc2@0 like the mmc2_pins_a one.
+This makes the original node (mmc2_pins_a) scrapped out of the dtb and
+result in a unusable eMMC if U-Boot didn't configured the pins to the
+correct functions.
+
+Upstream-Status: Backport from v4.10
+
+Signed-off-by: Emmanuel Vadot <manu@bidouilliste.com>
+Signed-off-by: Maxime Ripard <maxime.ripard@free-electrons.com>
+---
+ arch/arm/boot/dts/sun7i-a20-olinuxino-lime2-emmc.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/sun7i-a20-olinuxino-lime2-emmc.dts b/arch/arm/boot/dts/sun7i-a20-olinuxino-lime2-emmc.dts
+index 5ea4915..10d3074 100644
+--- a/arch/arm/boot/dts/sun7i-a20-olinuxino-lime2-emmc.dts
++++ b/arch/arm/boot/dts/sun7i-a20-olinuxino-lime2-emmc.dts
+@@ -56,7 +56,7 @@
+ };
+ 
+ &pio {
+-	mmc2_pins_nrst: mmc2@0 {
++	mmc2_pins_nrst: mmc2-rst-pin {
+ 		allwinner,pins = "PC16";
+ 		allwinner,function = "gpio_out";
+ 		allwinner,drive = <SUN4I_PINCTRL_10_MA>;
+-- 
+2.7.4
+
