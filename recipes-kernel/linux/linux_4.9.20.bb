@@ -6,7 +6,6 @@ COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
 
 inherit kernel
 
-require recipes-kernel/linux/linux-dtb.inc
 require linux.inc
 
 # Pull in the devicetree files into the rootfs
