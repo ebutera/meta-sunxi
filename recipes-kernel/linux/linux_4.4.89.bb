@@ -14,9 +14,9 @@ RDEPENDS_kernel-base += "kernel-devicetree"
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
-	
-SRC_URI[md5sum] = "2944984c89c272115649c4a08b43f8d0"
-SRC_URI[sha256sum] = "c4bc5ed6e73ed7393cc1b3714b822664224ab866db114eed663de1315718a4e1"
+
+SRC_URI[md5sum] = "5588e6bed5235a97d305dd82d0d4758f"
+SRC_URI[sha256sum] = "a81d1b1306e4fddee5d6f7219090a616073b02f4069e44522a9c0454b17f2b67"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://defconfig \

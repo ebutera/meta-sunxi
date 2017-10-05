@@ -15,10 +15,9 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
 	
-SRC_URI[md5sum] = "f824815a579334f76b85b2c79893ceb4"
-SRC_URI[sha256sum] = "48660806dd32fb8dcbcf5932291bf6cc7d29240070372230871e0f56fea81341"
+SRC_URI[md5sum] = "907447893b977c791934960a73b7fa00"
+SRC_URI[sha256sum] = "a09e95eb59de505cec462f3008148bcf7f5b8ed0e9e19f3e129d13a7a8d8f420"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://defconfig \
-        file://0001-ARM-dts-sunxi-Change-node-name-for-pwrseq-pin-on-Oli.patch \
         "
