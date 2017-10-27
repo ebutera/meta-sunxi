@@ -8,7 +8,7 @@ DEPENDS = "python"
 # No GPIO mappings for other machines yet
 COMPATIBLE_MACHINE = "(olinuxino-a13|olinuxino-a10|olinuxino-a20|olinuxino-a10lime|olinuxino-a20lime|olinuxino-a20lime2|olinuxino-a13som|olinuxino-a20som)"
 
-SRC_URI = "http://pypi.python.org/packages/source/p/pyA20/pyA20-${PV}.tar.gz \
+SRC_URI = "https://pypi.python.org/packages/source/p/pyA20/pyA20-${PV}.tar.gz \
            file://setup.py.patch \
            file://mapping.h \
           "
