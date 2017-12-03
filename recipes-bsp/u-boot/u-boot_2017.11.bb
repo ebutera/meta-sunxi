@@ -28,12 +28,11 @@ DEFAULT_PREFERENCE_sun8i="1"
 
 SRC_URI = "git://git.denx.de/u-boot.git;branch=master \
            file://boot.cmd \
-           file://0001-sunxi-add-A20-OLinuXino-Lime2-eMMC-defconfig.patch \
            "
 
-SRCREV = "8537ddd769f460d7fb7a62a3dcc9669049702e51"
+SRCREV = "c253573f3e269fd9a24ee6684d87dd91106018a5"
 
-PV = "v2017.03+git${SRCPV}"
+PV = "v2017.11+git${SRCPV}"
 
 PE = "2"
 
