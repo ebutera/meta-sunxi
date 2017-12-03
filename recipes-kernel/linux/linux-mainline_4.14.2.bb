@@ -2,7 +2,7 @@ SECTION = "kernel"
 DESCRIPTION = "Mainline Linux kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
-COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
+COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i)"
 
 inherit kernel
 
@@ -14,9 +14,9 @@ RDEPENDS_kernel-base += "kernel-devicetree"
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
-
-SRC_URI[md5sum] = "5588e6bed5235a97d305dd82d0d4758f"
-SRC_URI[sha256sum] = "a81d1b1306e4fddee5d6f7219090a616073b02f4069e44522a9c0454b17f2b67"
+	
+SRC_URI[md5sum] = "0164a000bd7b302037de4e91dff3018b"
+SRC_URI[sha256sum] = "e92690620a4e4811c6b37b2f1b6c9b32a1dde40aa12be6527c8dc215fb27464c"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://defconfig \

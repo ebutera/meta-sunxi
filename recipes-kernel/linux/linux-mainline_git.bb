@@ -17,9 +17,9 @@ DEFAULT_PREFERENCE = "-1"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
-# 4.14-rc3
-PV = "4.14+git${SRCPV}"
-SRCREV_pn-${PN} = "9e66317d3c92ddaab330c125dfe9d06eee268aff"
+# 4.15-rc1
+PV = "4.15+git${SRCPV}"
+SRCREV_pn-${PN} = "4fbd8d194f06c8a3fd2af1ce560ddb31f7ec8323"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
         file://defconfig \
