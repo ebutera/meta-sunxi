@@ -8,6 +8,8 @@ inherit kernel
 
 require linux.inc
 
+KBRANCH ?= "master"
+
 # Pull in the devicetree files into the rootfs
 RDEPENDS_kernel-base += "kernel-devicetree"
 
