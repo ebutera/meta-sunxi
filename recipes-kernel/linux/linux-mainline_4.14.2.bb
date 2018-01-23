@@ -13,7 +13,7 @@ require linux.inc
 KBRANCH ?= "master"
 
 # Pull in the devicetree files into the rootfs
-RDEPENDS_kernel-base += "kernel-devicetree"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
