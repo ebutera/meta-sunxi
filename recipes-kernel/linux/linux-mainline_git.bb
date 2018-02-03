@@ -6,11 +6,12 @@ COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i)"
 
 inherit kernel
 
-require recipes-kernel/linux/linux-dtb.inc
 require linux.inc
 
+KBRANCH ?= "master"
+
 # Pull in the devicetree files into the rootfs
-RDEPENDS_kernel-base += "kernel-devicetree"
+RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
 
 # Default is to use stable kernel version
 # If you want to use latest git version set to "1"
@@ -18,9 +19,9 @@ DEFAULT_PREFERENCE = "-1"
 
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 	
-# 4.9.0
-PV = "4.9.0+git${SRCPV}"
-SRCREV_pn-${PN} = "69973b830859bc6529a7a0468ba0d80ee5117826"
+# 4.15-rc1
+PV = "4.15+git${SRCPV}"
+SRCREV_pn-${PN} = "4fbd8d194f06c8a3fd2af1ce560ddb31f7ec8323"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
         file://defconfig \
