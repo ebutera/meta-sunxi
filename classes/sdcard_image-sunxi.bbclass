@@ -7,8 +7,8 @@ inherit image_types
 # The disk layout used is:
 #
 #    0                      -> 8*1024                           - reserverd
-#    8*1024                 -> 32*1024                          - 
-#    32*1024                -> 2048*1024                        - 
+#    8*1024                 ->                                  - arm combined spl/u-boot or aarch64 spl
+#    40*1024                ->                                  - aarch64 u-boot
 #    2048*1024              -> BOOT_SPACE                       - bootloader and kernel
 #
 #
@@ -20,24 +20,22 @@ IMAGE_TYPEDEP_sunxi-sdimg = "${SDIMG_ROOTFS_TYPE}"
 BOOTDD_VOLUME_ID ?= "${MACHINE}"
 
 # Boot partition size [in KiB]
-BOOT_SPACE ?= "20480"
+BOOT_SPACE ?= "40960"
 
 # First partition begin at sector 2048 : 2048*1024 = 2097152
 IMAGE_ROOTFS_ALIGNMENT = "2048"
 
-# Use an uncompressed ext3 by default as rootfs
+# Use an uncompressed ext4 by default as rootfs
 SDIMG_ROOTFS_TYPE ?= "ext4"
 SDIMG_ROOTFS = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.${SDIMG_ROOTFS_TYPE}"
 
-IMAGE_DEPENDS_sunxi-sdimg += " \
-			parted-native \
-			mtools-native \
-			dosfstools-native \
-			virtual/kernel \
-			virtual/bootloader \
+do_image_sunxi_sdimg[depends] += " \
+			parted-native:do_populate_sysroot \
+			mtools-native:do_populate_sysroot \
+			dosfstools-native:do_populate_sysroot \
+			virtual/kernel:do_deploy \
+			virtual/bootloader:do_deploy \
 			"
-
-rootfs[depends] += "virtual/kernel:do_deploy"
 
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
@@ -66,17 +64,23 @@ IMAGE_CMD_sunxi-sdimg () {
 	rm -f ${WORKDIR}/boot.img
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
 
-	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::uImage
+	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin ::${KERNEL_IMAGETYPE}
 
 	# Copy device tree file
 	if test -n "${KERNEL_DEVICETREE}"; then
 		for DTS_FILE in ${KERNEL_DEVICETREE}; do
 			DTS_BASE_NAME=`basename ${DTS_FILE} | awk -F "." '{print $1}'`
+			DTS_DIR_NAME=`dirname ${DTS_FILE}`
 			if [ -e ${DEPLOY_DIR_IMAGE}/"${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb" ]; then
+
+				if [ ${DTS_FILE} != ${DTS_BASE_NAME}.dtb ]; then
+					mmd -i ${WORKDIR}/boot.img ::/${DTS_DIR_NAME}
+				fi
+
 				kernel_bin="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${MACHINE}.bin`"
 				kernel_bin_for_dtb="`readlink ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb | sed "s,$DTS_BASE_NAME,${MACHINE},g;s,\.dtb$,.bin,g"`"
 				if [ $kernel_bin = $kernel_bin_for_dtb ]; then
-					mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb ::/${DTS_BASE_NAME}.dtb
+					mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTS_BASE_NAME}.dtb ::/${DTS_FILE}
 				fi
 			fi
 		done
@@ -106,7 +110,15 @@ IMAGE_CMD_sunxi-sdimg () {
 		dd if=${SDIMG_ROOTFS} of=${SDIMG} conv=notrunc seek=1 bs=$(expr 1024 \* ${BOOT_SPACE_ALIGNED} + ${IMAGE_ROOTFS_ALIGNMENT} \* 1024) && sync && sync
 	fi
 
-	#write u-boot and spl at the beginint of sdcard in one shot
-	dd if=${DEPLOY_DIR_IMAGE}/u-boot-sunxi-with-spl.bin of=${SDIMG} bs=1024 seek=8 conv=notrunc
+	# write u-boot-spl at the begining of sdcard in one shot
+	SPL_FILE=$(basename ${SPL_BINARY})
+	dd if=${DEPLOY_DIR_IMAGE}/${SPL_FILE} of=${SDIMG} bs=1024 seek=8 conv=notrunc
+}
 
+# write uboot.itb for arm64 boards
+IMAGE_CMD_sunxi-sdimg_append_sun50i () {
+	if [ -e "${DEPLOY_DIR_IMAGE}/${UBOOT_BINARY}" ]
+	then
+		dd if=${DEPLOY_DIR_IMAGE}/${UBOOT_BINARY} of=${SDIMG} bs=1024 seek=40 conv=notrunc
+	fi
 }

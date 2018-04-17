@@ -1,0 +1,12 @@
+diff --git a/scripts/dtc/pylibfdt/Makefile b/scripts/dtc/pylibfdt/Makefile
+index 01d5e0f..78c4d72 100644
+--- a/scripts/dtc/pylibfdt/Makefile
++++ b/scripts/dtc/pylibfdt/Makefile
+@@ -15,6 +15,7 @@ PYLIBFDT_srcs = $(addprefix $(LIBFDT_srcdir)/,$(LIBFDT_SRCS)) \
+ 
+ quiet_cmd_pymod = PYMOD   $@
+       cmd_pymod = unset CC; unset CROSS_COMPILE; unset CFLAGS;\
++		CC="$(HOSTCC)" LDSHARED="$(HOSTLDSHARED)" \
+ 		LDFLAGS="$(HOSTLDFLAGS)" \
+ 		VERSION="u-boot-$(UBOOTVERSION)" \
+ 		CPPFLAGS="$(HOSTCFLAGS) -I$(LIBFDT_srcdir)" OBJDIR=$(obj) \

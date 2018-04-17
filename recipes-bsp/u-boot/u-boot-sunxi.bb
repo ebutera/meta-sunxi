@@ -21,6 +21,7 @@ UBOOT_MACHINE_meleg = "Mele_A1000G_config"
 SRC_URI = " \
 	git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi \
 	file://0002-gcc5-fixes.patch \
+	file://0003-gcc6-fixes.patch \
 	"
 
 PE = "1"

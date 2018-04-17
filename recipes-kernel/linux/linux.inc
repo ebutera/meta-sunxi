@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
 INC_PR = "r0"
 
-inherit kernel siteinfo
+inherit kernel kernel-yocto siteinfo
 
 # Enable OABI compat for people stuck with obsolete userspace
 ARM_KEEP_OABI ?= "0"
@@ -22,6 +22,8 @@ LOGO_SIZE ?= '${@base_conditional("MACHINE_GUI_CLASS", "bigscreen", "vga", "qvga
 # accordingly.
 
 LOCALVERSION ?= ""
+KCONFIG_MODE ?= "alldefconfig"
+KMACHINE ?= "${MACHINE}"
 
 #kernel_conf_variable CMDLINE "\"${CMDLINE} ${CMDLINE_DEBUG}\""
 kernel_conf_variable() {
@@ -35,7 +37,6 @@ kernel_conf_variable() {
 }
 
 do_configure_prepend() {
-    echo "" > ${B}/.config
     CONF_SED_SCRIPT=""
 
     #
@@ -110,9 +111,6 @@ do_configure_prepend() {
         kernel_conf_variable ROOT_NFS y
         kernel_conf_variable CMDLINE \"${CMDLINE_NFSROOT_USB} ${CMDLINE_DEBUG}\"
     fi
-
-    sed -e "${CONF_SED_SCRIPT}" \
-    < '${WORKDIR}/defconfig' >>'${B}/.config'
 
     yes '' | oe_runmake -C ${S} O=${B} oldconfig
 }
