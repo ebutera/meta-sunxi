@@ -21,9 +21,9 @@ SRC_URI = "git://git.denx.de/u-boot.git;branch=master \
            file://boot.cmd \
            "
 
-SRCREV = "c253573f3e269fd9a24ee6684d87dd91106018a5"
+SRCREV = "f95ab1fb6e37f0601f397091bb011edf7a98b890"
 
-PV = "v2017.11+git${SRCPV}"
+PV = "v2018.03+git${SRCPV}"
 PE = "2"
 
 S = "${WORKDIR}/git"
