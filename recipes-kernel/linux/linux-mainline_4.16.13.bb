@@ -19,11 +19,10 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
 	
-SRC_URI[md5sum] = "0d701ac1e2a67d47ce7127432df2c32b"
-SRC_URI[sha256sum] = "5a26478906d5005f4f809402e981518d2b8844949199f60c4b6e1f986ca2a769"
+SRC_URI[md5sum] = "86f56f586f35ac3a98e086dccfd2ff99"
+SRC_URI[sha256sum] = "6f0a7b3abd48eca3df5e29bfbcfc1c06dd2792f86d23cdb9ad37cf3e572df2e3"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
-        file://0002-arm64-dts-orange-pi-zero-plus2-enable-AP6212a-WiFi-B.patch \
         file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
         file://defconfig \
         "
