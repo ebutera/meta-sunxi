@@ -31,7 +31,7 @@ If you want to switch back to sunxi versions for some reasons (no device tree av
 
 If you already have built the mainline versions it might be necessary to reset the build directories with:
 
-	bitbake -c clean linux u-boot
+	bitbake -c clean virtual/kernel virtual/bootloader
 
 Performance
 ===========
