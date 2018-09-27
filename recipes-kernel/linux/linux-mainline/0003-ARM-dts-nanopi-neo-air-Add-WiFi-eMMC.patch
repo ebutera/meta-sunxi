@@ -9,18 +9,22 @@ This patch was originally submitted by Jelle van der Waa. Martin Kelly
 modified it to compile on the latest kernel, fixed up some review
 comments from Maxime Ripard, and re-tested the patch.
 
+The patch has been reworked to add back eMMC support which has been left
+out at the last backport.
+
 Cc: Maxime Ripard <maxime.ripard@free-electrons.com>
 Cc: linux-sunxi@googlegroups.com
 Cc: devicetree@vger.kernel.org
 Signed-off-by: Jelle van der Waa <jelle@vdwaa.nl>
 Signed-off-by: Martin Kelly <mkelly@xevo.com>
 Signed-off-by: Maxime Ripard <maxime.ripard@free-electrons.com>
+Signed-off-by: Florin Sarbu <florin@resin.io>
 ---
- arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts | 34 +++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
 
 diff --git a/arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts b/arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts
-index 03ff6f8b93ff..920849092cc8 100644
+index 03ff6f8..a9331fe 100644
 --- a/arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts
 +++ b/arch/arm/boot/dts/sun8i-h3-nanopi-neo-air.dts
 @@ -72,6 +72,11 @@
@@ -35,7 +39,7 @@ index 03ff6f8b93ff..920849092cc8 100644
  };
  
  &mmc0 {
-@@ -84,6 +89,25 @@
+@@ -84,6 +89,35 @@
  	status = "okay";
  };
  
@@ -56,6 +60,16 @@ index 03ff6f8b93ff..920849092cc8 100644
 +		interrupts = <6 10 IRQ_TYPE_LEVEL_LOW>; /* PG10 / EINT10 */
 +		interrupt-names = "host-wake";
 +	};
++};
++
++&mmc2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&mmc2_8bit_pins>;
++	vmmc-supply = <&reg_vcc3v3>;
++	vqmmc-supply = <&reg_vcc3v3>;
++	bus-width = <8>;
++	non-removable;
++	status = "okay";
 +};
 +
  &uart0 {
