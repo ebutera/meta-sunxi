@@ -14,9 +14,10 @@ COMPATIBLE_MACHINE = "orange-pi-zero"
 SRCREV = "d649e5a78efdc56ecd0951e35ca60db175650232"
 
 SRC_URI = "git://github.com/fifteenhex/xradio.git;protocol=https \
-           file://Add_Targets_To_Makefile.patch \
           "
 
 S = "${WORKDIR}/git"
+
+EXTRA_OEMAKE += "-C ${STAGING_KERNEL_DIR} M=${S}"
 
 KERNEL_MODULE_AUTOLOAD += "xradio_wlan"
