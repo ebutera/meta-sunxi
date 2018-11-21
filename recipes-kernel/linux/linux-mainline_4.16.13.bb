@@ -26,3 +26,7 @@ SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
         file://defconfig \
         "
+
+SRC_URI_append_orange-pi-zero += "\
+	file://0001-add-wifi-support.patch \
+	"
