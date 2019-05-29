@@ -3,9 +3,9 @@ meta-sunxi
 
 Official sunxi OpenEmbedded layer for Allwinner-based boards.
 
-This layer depends on the additional layer:
+This layer depends on the additional layers:
 
-meta-openembedded: git://git.openembedded.org/meta-openembedded
+* [meta-openembedded/meta-oe](http://git.openembedded.org/meta-openembedded/tree/meta-oe)
 
 Tested with core-image-base.
 
@@ -19,7 +19,7 @@ Kernel / U-Boot Version
 ===========
 Most Allwinner devices and hardware are supported in mainline kernel and U-Boot, so this layer builds mainline by default.
 There is a custom U-Boot and Kernel version for sunxi devices which includes some special drivers not mainlined.
-These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline 
+These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline
 
 If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), either:
 - change the file conf/machine/include/sunxi.inc to include the following block
