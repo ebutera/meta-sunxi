@@ -15,17 +15,21 @@ KBRANCH ?= "master"
 # Pull in the devicetree files into the rootfs
 RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
 
-# Default is to use stable kernel version
-# If you want to use latest git version set to "1"
-DEFAULT_PREFERENCE = "-1"
-
 KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
-	
-# v4.17-rc7
-PV = "v4.17-rc7+git${SRCPV}"
-SRCREV_pn-${PN} = "b04e217704b7f879c6b91222b066983a44a7a09f"
 
-SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
+S = "${WORKDIR}/linux-${PV}"
+
+SRC_URI[md5sum] = "bf80c4ab5f475a2c0846340fb9eb6449"
+SRC_URI[sha256sum] = "8ec8258e75ebdcd8197328b8571435c246f55d7da7f6ed65e96aa8d4bff9a639"
+
+SRC_URI = "https://git.kernel.org/torvalds/t/linux-${PV}.tar.gz \
+        file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
         file://defconfig \
         "
-S = "${WORKDIR}/git"
+
+SRC_URI_append_orange-pi-zero += "\
+	file://0001-add-wifi-support.patch \
+	"
+
+FILES_${KERNEL_PACKAGE_NAME}-base_append = " ${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"
+
