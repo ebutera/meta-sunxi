@@ -14,6 +14,7 @@ Maintainers:
 * Nicolas Aguirre <aguirre.nicolas@gmail.com>
 * Enrico Butera <ebutera@users.sourceforge.net>
 * Sergey Lapin <slapin@ossfans.org>
+* Marek Belisko <marek.belisko@gmail.com>
 
 Kernel / U-Boot Version
 ===========
@@ -32,6 +33,10 @@ If you want to switch back to sunxi versions for some reasons (no device tree av
 If you already have built the mainline versions it might be necessary to reset the build directories with:
 
 	bitbake -c clean virtual/kernel virtual/bootloader
+
+For mainline kernel we have now support for latest LTS, stable and bleeding edge (latest possible rc).
+By default we use latest LTS. If you would like to change version please update ```PREFERRED_VERSION_linux-mainline``` in:
+* [conf/machine/include/sunxi.inc](https://github.com/linux-sunxi/meta-sunxi/blob/4921234ed77f9df77c65c88637ce50468f65bde7/conf/machine/include/sunxi.inc#L16)
 
 Performance
 ===========
