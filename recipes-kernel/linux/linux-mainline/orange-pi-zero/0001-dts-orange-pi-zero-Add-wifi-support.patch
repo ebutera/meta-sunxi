@@ -1,28 +1,44 @@
+From 055155f463693e61f9018a011ad600d872d6736f Mon Sep 17 00:00:00 2001
+From: Marek Belisko <marek.belisko@open-nandra.com>
+Date: Fri, 2 Aug 2019 14:46:10 +0200
+Subject: [PATCH] dts: orange-pi-zero: Add wifi support
+
+Signed-off-by: Marek Belisko <marek.belisko@open-nandra.com>
+---
+ arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts | 47 ++++++++++++++++++-----
+ 1 file changed, 37 insertions(+), 10 deletions(-)
+
 diff --git a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
-index 6713d0f2b3f4..ad0829e8f716 100644
+index 84cd9c0..77b2fc6 100644
 --- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
 +++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
-@@ -80,19 +80,22 @@
+@@ -80,13 +80,14 @@
  		};
  	};
  
 -	reg_vcc_wifi: reg_vcc_wifi {
-+	vdd_wifi: vdd_wifi {
- 		compatible = "regulator-fixed";
+-		compatible = "regulator-fixed";
 -		regulator-min-microvolt = <3300000>;
 -		regulator-max-microvolt = <3300000>;
 -		regulator-name = "vcc-wifi";
 -		enable-active-high;
++	vdd_wifi: vdd_wifi {
 +		regulator-name = "wifi";
 +		regulator-min-microvolt = <1800000>;
 +		regulator-max-microvolt = <1800000>;
  		gpio = <&pio 0 20 GPIO_ACTIVE_HIGH>;
 +		startup-delay-us = <70000>;
 +		enable-active-high;
++
+ 	};
+ 
+ 	reg_vdd_cpux: vdd-cpux-regulator {
+@@ -106,10 +107,12 @@
+ 			  1300000 1>;
  	};
  
 -	wifi_pwrseq: wifi_pwrseq {
-+	pwrseq_wifi: pwrseq_wifi@0 {
++	pwrseq_wifi: pwrseq_wifi {
  		compatible = "mmc-pwrseq-simple";
 +		pinctrl-names = "default";
 +		pinctrl-0 = <&wifi_rst>;
@@ -32,10 +48,10 @@ index 6713d0f2b3f4..ad0829e8f716 100644
  	};
  };
  
-@@ -124,9 +127,11 @@
+@@ -140,9 +143,11 @@
+ };
+ 
  &mmc1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&mmc1_pins_a>;
 -	vmmc-supply = <&reg_vcc_wifi>;
 -	mmc-pwrseq = <&wifi_pwrseq>;
 +	vmmc-supply = <&reg_vcc3v3>;
@@ -46,7 +62,7 @@ index 6713d0f2b3f4..ad0829e8f716 100644
  	non-removable;
  	status = "okay";
  
-@@ -136,9 +141,30 @@
+@@ -152,6 +157,13 @@
  	 */
  	xr819: sdio_wifi@1 {
  		reg = <1>;
@@ -60,6 +76,11 @@ index 6713d0f2b3f4..ad0829e8f716 100644
  	};
  };
  
+@@ -208,3 +220,18 @@
+ 	status = "okay";
+ 	usb0_id_det-gpios = <&pio 6 12 GPIO_ACTIVE_HIGH>; /* PG12 */
+ };
++
 +&pio {
 +	wifi_wake: wifi_wake {
 +		pins = "PG10";
@@ -74,6 +95,6 @@ index 6713d0f2b3f4..ad0829e8f716 100644
 +    };
 +};
 +
- &mmc1_pins_a {
- 	bias-pull-up;
- };
+-- 
+2.7.4
+

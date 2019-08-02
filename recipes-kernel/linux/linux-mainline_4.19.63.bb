@@ -28,5 +28,5 @@ SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${PV}.tar.xz \
         "
 
 SRC_URI_append_orange-pi-zero += "\
-	file://0001-add-wifi-support.patch \
+	file://0001-dts-orange-pi-zero-Add-wifi-support.patch \
 	"
