@@ -19,8 +19,8 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
 
-SRC_URI[md5sum] = "bf80c4ab5f475a2c0846340fb9eb6449"
-SRC_URI[sha256sum] = "8ec8258e75ebdcd8197328b8571435c246f55d7da7f6ed65e96aa8d4bff9a639"
+SRC_URI[md5sum] = "622944bb4f6c3d6258dfbd506569e3d6"
+SRC_URI[sha256sum] = "8c5bfdeadd35b56bc4b71142750c93142b3182870fd7ff66ab8f24e4d0283580"
 
 SRC_URI = "https://git.kernel.org/torvalds/t/linux-${PV}.tar.gz \
         file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
