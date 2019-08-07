@@ -26,9 +26,8 @@ SRC_URI = "https://git.kernel.org/torvalds/t/linux-${PV}.tar.gz \
         file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
         file://defconfig \
         "
-
 SRC_URI_append_orange-pi-zero += "\
-	file://0001-add-wifi-support.patch \
+	file://0001-dts-orange-pi-zero-Add-wifi-support.patch \
 	"
 
 FILES_${KERNEL_PACKAGE_NAME}-base_append = " ${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"
