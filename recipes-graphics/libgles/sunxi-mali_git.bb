@@ -31,7 +31,7 @@ SRC_URI = "gitsm://github.com/linux-sunxi/sunxi-mali.git \
 
 S = "${WORKDIR}/git"
 
-DEPENDS = "libdrm xorgproto libump"
+DEPENDS = "libdrm xorgproto libump patchelf-native"
 
 PACKAGECONFIG ??= "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)}"
 PACKAGECONFIG[wayland] = "EGL_TYPE=framebuffer,,,"
@@ -70,11 +70,13 @@ do_install() {
 
     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install
     make libdir=${D}${libdir}/ includedir=${D}${includedir}/ install -C include
+    rm -f ${D}${includedir}/KHR/khrplatform.h
 
     # Fix .so name and create symlinks, binary package provides .so wich can't be included directly in package without triggering the 'dev-so' QA check
     # Packages like xf86-video-fbturbo dlopen() libUMP.so, so we do need to ship the .so files in ${PN}
 
     mv ${D}${libdir}/libMali.so ${D}${libdir}/libMali.so.3
+    patchelf --set-soname libMali.so.3 ${D}${libdir}/libMali.so.3
     ln -sf libMali.so.3 ${D}${libdir}/libMali.so
 
     for flib in libEGL.so.1.4 libGLESv1_CM.so.1.1 libGLESv2.so.2.0 ; do
