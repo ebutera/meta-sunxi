@@ -1,5 +1,5 @@
 SECTION = "kernel"
-DESCRIPTION = "Mainline Linux kernel"
+DESCRIPTION = "Mainline Stable Linux kernel"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=bbea815ee2795b2f4230826c0c6b8814"
 COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i|sun50i)"
@@ -12,6 +12,8 @@ require linux.inc
 # in something or kernel-yocto.bbclass will fail.
 KBRANCH ?= "master"
 
+DEPENDS += "rsync-native"
+
 # Pull in the devicetree files into the rootfs
 RDEPENDS_${KERNEL_PACKAGE_NAME}-base += "kernel-devicetree"
 
@@ -19,8 +21,8 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 
 S = "${WORKDIR}/linux-${PV}"
 
-SRC_URI[md5sum] = "563ddd6b9f8022c2f881b441bee55844"
-SRC_URI[sha256sum] = "c645402843f90a69426975f8923923dfc6edebb5d1bc0092560ffb7135d3cd96"
+SRC_URI[md5sum] = "6f4ab59d6ac7311f4245fc359706a0b7"
+SRC_URI[sha256sum] = "78f3cfc6c20b10ff21c0bb22d7d257cab03781c44d8c5aae289f749f94f76649"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v5.x/linux-${PV}.tar.xz \
         file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
