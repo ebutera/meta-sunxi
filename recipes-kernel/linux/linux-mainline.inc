@@ -26,4 +26,6 @@ SRC_URI = "https://www.kernel.org/pub/linux/kernel/v5.x/linux-${PV}.tar.xz \
 	file://defconfig \
 "
 
+SRC_URI_append_use-mailine-graphics = " file://drm.cfg"
+
 FILES_${KERNEL_PACKAGE_NAME}-base_append = " ${nonarch_base_libdir}/modules/${KERNEL_VERSION}/modules.builtin.modinfo"

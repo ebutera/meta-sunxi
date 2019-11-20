@@ -1,15 +1,5 @@
-PREFERRED_PROVIDER_virtual/mesa ?= "mesa-gl"
-PREFERRED_PROVIDER_virtual/libgl ?= "mesa-gl"
-PREFERRED_PROVIDER_virtual/libgles1 ?= "sunxi-mali"
-PREFERRED_PROVIDER_virtual/libgles2 ?= "sunxi-mali"
-PREFERRED_PROVIDER_virtual/egl ?= "sunxi-mali"
-
-PACKAGECONFIG_remove_pn-xserver-xorg = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'glamor', '', d)}"
-
-XSERVER += "sunxi-mali \
-            sunxi-mali-dev"
-
-MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS += "\
- kernel-module-mali \
- kernel-module-mali-drm \
-  "
+# The "sunxi-mailine-graphics-drivers.inc" doesn't exist, but it can be created
+# in the future if needed.  Using include directive ensures build doesn't fail
+# if .inc file doesn't exist:
+# https://www.yoctoproject.org/pipermail/yocto/2019-August/046484.html
+include ${@'sunxi-mali-driver.inc' if 'use-mailine-graphics' not in d.getVar("MACHINEOVERRIDES").split(":") else 'sunxi-mailine-graphics-drivers.inc' }
