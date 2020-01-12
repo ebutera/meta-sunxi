@@ -1,28 +1,18 @@
-From 055155f463693e61f9018a011ad600d872d6736f Mon Sep 17 00:00:00 2001
-From: Marek Belisko <marek.belisko@open-nandra.com>
-Date: Fri, 2 Aug 2019 14:46:10 +0200
-Subject: [PATCH] dts: orange-pi-zero: Add wifi support
-
-Signed-off-by: Marek Belisko <marek.belisko@open-nandra.com>
----
- arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts | 47 ++++++++++++++++++-----
- 1 file changed, 37 insertions(+), 10 deletions(-)
-
 diff --git a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
-index 84cd9c0..77b2fc6 100644
+index 84cd9c061..917986cce 100644
 --- a/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
 +++ b/arch/arm/boot/dts/sun8i-h2-plus-orangepi-zero.dts
-@@ -80,13 +80,14 @@
+@@ -80,13 +80,15 @@
  		};
  	};
  
 -	reg_vcc_wifi: reg_vcc_wifi {
--		compatible = "regulator-fixed";
++	vdd_wifi: vdd_wifi {
+ 		compatible = "regulator-fixed";
 -		regulator-min-microvolt = <3300000>;
 -		regulator-max-microvolt = <3300000>;
 -		regulator-name = "vcc-wifi";
 -		enable-active-high;
-+	vdd_wifi: vdd_wifi {
 +		regulator-name = "wifi";
 +		regulator-min-microvolt = <1800000>;
 +		regulator-max-microvolt = <1800000>;
@@ -33,7 +23,7 @@ index 84cd9c0..77b2fc6 100644
  	};
  
  	reg_vdd_cpux: vdd-cpux-regulator {
-@@ -106,10 +107,12 @@
+@@ -106,10 +108,12 @@
  			  1300000 1>;
  	};
  
@@ -48,7 +38,7 @@ index 84cd9c0..77b2fc6 100644
  	};
  };
  
-@@ -140,9 +143,11 @@
+@@ -140,9 +144,11 @@
  };
  
  &mmc1 {
@@ -62,7 +52,7 @@ index 84cd9c0..77b2fc6 100644
  	non-removable;
  	status = "okay";
  
-@@ -152,6 +157,13 @@
+@@ -152,6 +158,13 @@
  	 */
  	xr819: sdio_wifi@1 {
  		reg = <1>;
@@ -76,7 +66,7 @@ index 84cd9c0..77b2fc6 100644
  	};
  };
  
-@@ -208,3 +220,18 @@
+@@ -208,3 +221,18 @@
  	status = "okay";
  	usb0_id_det-gpios = <&pio 6 12 GPIO_ACTIVE_HIGH>; /* PG12 */
  };
@@ -95,6 +85,3 @@ index 84cd9c0..77b2fc6 100644
 +    };
 +};
 +
--- 
-2.7.4
-
