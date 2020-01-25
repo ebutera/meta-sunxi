@@ -36,3 +36,7 @@ S = "${WORKDIR}/git"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SPL_BINARY="u-boot-sunxi-with-spl.bin"
+
+do_configure () {
+    oe_runmake -C ${S} O=${B} ${UBOOT_MACHINE}
+}
