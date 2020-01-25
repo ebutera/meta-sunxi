@@ -26,9 +26,10 @@ If you want to switch back to sunxi versions for some reasons (no device tree av
 - change the file conf/machine/include/sunxi.inc to include the following block
 - edit your conf/local.conf to add the following block
 
-	PREFERRED_PROVIDER_u-boot="u-boot-sunxi"
-	PREFERRED_PROVIDER_virtual/bootloader="u-boot-sunxi"
-	PREFERRED_PROVIDER_virtual/kernel="linux-sunxi"
+		PREFERRED_PROVIDER_u-boot="u-boot-sunxi"
+		PREFERRED_PROVIDER_virtual/bootloader="u-boot-sunxi"
+		PREFERRED_PROVIDER_virtual/kernel="linux-sunxi"
+		KERNEL_DEVICETREE = ""
 
 If you already have built the mainline versions it might be necessary to reset the build directories with:
 
