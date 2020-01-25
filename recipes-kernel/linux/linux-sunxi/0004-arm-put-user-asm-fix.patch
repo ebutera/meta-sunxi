@@ -1,0 +1,29 @@
+From 25a7e85eb0d58479f7d8895b1b29a648bd07d60e Mon Sep 17 00:00:00 2001
+From: Andrey Lebedev <andrey@lebedev.lt>
+Date: Mon, 20 Jan 2020 23:19:51 +0200
+Subject: [PATCH 2/2] Fix asm error in put_user under gcc version 8 and above
+
+Fixes these errors during compilation of linux-sunxi-3.4 kernel:
+/tmp/ccCGMQmS.s:648: Error: .err encountered
+
+Taken from https://patchwork.kernel.org/patch/10546809/
+---
+ arch/arm/include/asm/uaccess.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/include/asm/uaccess.h b/arch/arm/include/asm/uaccess.h
+index b04850fd..abfafbbf 100644
+--- a/arch/arm/include/asm/uaccess.h
++++ b/arch/arm/include/asm/uaccess.h
+@@ -159,7 +159,7 @@ extern int __put_user_8(void *, unsigned long long);
+ 	({								\
+ 		unsigned long __limit = current_thread_info()->addr_limit - 1; \
+ 		const typeof(*(p)) __user *__tmp_p = (p);		\
+-		register const typeof(*(p)) __r2 asm("r2") = (x);	\
++		register typeof(*(p)) __r2 asm("r2") = (x);		\
+ 		register const typeof(*(p)) __user *__p asm("r0") = __tmp_p; \
+ 		register unsigned long __l asm("r1") = __limit;		\
+ 		register int __e asm("r0");				\
+-- 
+2.20.1
+

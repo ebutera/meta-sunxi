@@ -1,0 +1,25 @@
+From 302604ee4a2011871cb26deaf69d567cf57d0fe3 Mon Sep 17 00:00:00 2001
+From: Andrey Lebedev <andrey@lebedev.lt>
+Date: Mon, 20 Jan 2020 23:20:07 +0200
+Subject: [PATCH 1/2] Silence annoying warning
+
+---
+ include/linux/log2.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/linux/log2.h b/include/linux/log2.h
+index fd7ff3d9..14458fdd 100644
+--- a/include/linux/log2.h
++++ b/include/linux/log2.h
+@@ -18,7 +18,7 @@
+ /*
+  * deal with unrepresentable constant logarithms
+  */
+-extern __attribute__((const, noreturn))
++extern __attribute__((const))
+ int ____ilog2_NaN(void);
+ 
+ /*
+-- 
+2.20.1
+
