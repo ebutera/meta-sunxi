@@ -1,0 +1,24 @@
+From bc4aa5814cbedbfaa1c79dfe7ea2571fee7f2d51 Mon Sep 17 00:00:00 2001
+From: Andrey Lebedev <andrey@lebedev.lt>
+Date: Wed, 22 Jan 2020 20:00:11 +0200
+Subject: [PATCH] No gcc version-specific includes
+
+In order to support gcc-5 and above. Fixes compilation errors like
+
+linux/compiler-gcc9.h: No such file or directory
+---
+ include/linux/compiler-gcc.h | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/include/linux/compiler-gcc.h b/include/linux/compiler-gcc.h
+index 9896e547b9..5f0bd65f3a 100644
+--- a/include/linux/compiler-gcc.h
++++ b/include/linux/compiler-gcc.h
+@@ -90,4 +90,3 @@
+ #define __gcc_header(x) #x
+ #define _gcc_header(x) __gcc_header(linux/compiler-gcc##x.h)
+ #define gcc_header(x) _gcc_header(x)
+-#include gcc_header(__GNUC__)
+-- 
+2.20.1
+

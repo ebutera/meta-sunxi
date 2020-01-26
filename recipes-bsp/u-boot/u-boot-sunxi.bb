@@ -20,8 +20,9 @@ UBOOT_MACHINE_meleg = "Mele_A1000G_config"
 
 SRC_URI = " \
 	git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi \
-	file://0002-gcc5-fixes.patch \
-	file://0003-gcc6-fixes.patch \
+	file://0001-gcc5-fixes.patch \
+	file://0002-gcc6-fixes.patch \
+	file://0003-No-gcc-version-specific-includes.patch \
 	"
 
 PE = "1"
@@ -35,3 +36,7 @@ S = "${WORKDIR}/git"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 SPL_BINARY="u-boot-sunxi-with-spl.bin"
+
+do_configure () {
+    oe_runmake -C ${S} O=${B} ${UBOOT_MACHINE}
+}

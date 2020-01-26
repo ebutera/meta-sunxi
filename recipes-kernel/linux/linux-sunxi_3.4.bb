@@ -14,9 +14,12 @@ MACHINE_KERNEL_PR_append = "a"
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
         file://0001-compiler-gcc-integrate-the-various-compiler-gcc-345-.patch \
         file://0002-use-static-inline-in-ARM-ftrace.patch \
-        file://0001-gcc5-fixes.patch \
+        file://0003-gcc5-fixes.patch \
+        file://0004-arm-put-user-asm-fix.patch \
+        file://0005-silence-warning.patch \
         file://defconfig \
         "
+LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
 S = "${WORKDIR}/git"
 
