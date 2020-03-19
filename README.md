@@ -19,8 +19,12 @@ Maintainers:
 Kernel / U-Boot Version
 ===========
 Most Allwinner devices and hardware are supported in mainline kernel and U-Boot, so this layer builds mainline by default.
+
+Legacy sunxi Kernel / U-Boot
+-----------
+
 There is a custom U-Boot and Kernel version for sunxi devices which includes some special drivers not mainlined.
-These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline
+These versions are rather old (3.4 for kernel and 2014.04 for U-Boot), but may support more functions and devices than current mainline.
 
 If you want to switch back to sunxi versions for some reasons (no device tree available, unsupported hardware), either:
 - change the file conf/machine/include/sunxi.inc to include the following block
@@ -35,9 +39,16 @@ If you already have built the mainline versions it might be necessary to reset t
 
 	bitbake -c clean virtual/kernel virtual/bootloader
 
-For mainline kernel we have now support for latest LTS, stable and bleeding edge (latest possible rc).
+Mainline Kernel / U-Boot
+-----------
+
+For mainline kernel we have now support for latest LTS and stable.
 By default we use latest LTS. If you would like to change version please update ```PREFERRED_VERSION_linux-mainline``` in:
-* [conf/machine/include/sunxi.inc](https://github.com/linux-sunxi/meta-sunxi/blob/4921234ed77f9df77c65c88637ce50468f65bde7/conf/machine/include/sunxi.inc#L16)
+* [conf/machine/include/sunxi.inc](https://github.com/linux-sunxi/meta-sunxi/blob/fa0846c0eb23e3424b89acb4d5a327e921f73497/conf/machine/include/sunxi.inc#L16)
+
+When using mainline kernel ≥ 5.2 it is now possible to use the mainline graphics drivers *lima* and *panfrost*, instead of the *mali* driver provided by ARM. To enable open source mainline graphics support add the following line in your `local.conf`:
+
+    MACHINEOVERRIDES .= ":use-mailine-graphics"
 
 Performance
 ===========
