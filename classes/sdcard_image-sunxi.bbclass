@@ -94,6 +94,10 @@ IMAGE_CMD_sunxi-sdimg () {
 	then
 		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/boot.scr ::boot.scr
 	fi
+        if [ -e "${DEPLOY_DIR_IMAGE}/splash.bmp" ]
+        then
+                mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/splash.bmp ::splash.bmp
+        fi
 
 
 	# Add stamp file
