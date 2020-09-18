@@ -11,7 +11,7 @@ RDEPENDS_${PN} += "xradio-firmware"
 
 COMPATIBLE_MACHINE = "orange-pi-zero"
 
-SRCREV = "d649e5a78efdc56ecd0951e35ca60db175650232"
+SRCREV = "6bf0e2e21c80456e2a3d4ad1267caecde7165871"
 
 SRC_URI = "git://github.com/fifteenhex/xradio.git;protocol=https \
           "
