@@ -11,9 +11,11 @@ RDEPENDS_${PN} += "xradio-firmware"
 
 COMPATIBLE_MACHINE = "orange-pi-zero"
 
-SRCREV = "6bf0e2e21c80456e2a3d4ad1267caecde7165871"
+SRCREV = "279868ac96f6db34b65f68c6722830fa0aacb86b"
 
-SRC_URI = "git://github.com/fifteenhex/xradio.git;protocol=https \
+SRC_URI = "\
+	   git://github.com/dbeinder/xradio.git;protocol=https;branch=karabek_rebase \
+	file://0001-Enable-out-of-tree-compilation.patch \
           "
 
 S = "${WORKDIR}/git"

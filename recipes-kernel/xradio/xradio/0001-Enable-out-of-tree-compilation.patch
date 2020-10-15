@@ -1,0 +1,30 @@
+From 15651d333da5429a1544f0a17d5f02c74f693ad7 Mon Sep 17 00:00:00 2001
+From: Marek Belisko <marek.belisko@open-nandra.com>
+Date: Thu, 15 Oct 2020 14:45:07 +0200
+Subject: [PATCH] Enable out of tree compilation
+
+Signed-off-by: Marek Belisko <marek.belisko@open-nandra.com>
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 7a0de9a..ee75f0b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,9 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ # # Standalone Makefile - uncomment for out-of-tree compilation
+-# CONFIG_WLAN_VENDOR_XRADIO := m
+-# ccflags-y += -DCONFIG_XRADIO_USE_EXTENSIONS
+-# ccflags-y += -DCONFIG_XRADIO_WAPI_SUPPORT
++CONFIG_WLAN_VENDOR_XRADIO := m
++ccflags-y += -DCONFIG_XRADIO_USE_EXTENSIONS
++ccflags-y += -DCONFIG_XRADIO_WAPI_SUPPORT
+ 
+ # Kernel part
+ 
+-- 
+2.7.4
+
