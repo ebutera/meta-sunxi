@@ -3,7 +3,7 @@ FILESEXTRAPATHS_prepend_sunxi := "${THISDIR}/files:"
 DEPENDS_append_sunxi = " bc-native dtc-native swig-native python3-native flex-native bison-native "
 DEPENDS_append_sun50i = " atf-sunxi "
 
-COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i|sun8i|sun50i)"
+COMPATIBLE_MACHINE_sunxi = "(sun4i|sun5i|sun7i|sun8i|sun50i)"
 
 DEFAULT_PREFERENCE_sun4i="1"
 DEFAULT_PREFERENCE_sun5i="1"
