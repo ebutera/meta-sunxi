@@ -3,6 +3,7 @@ require linux-mainline.inc
 DESCRIPTION = "Mainline Stable Linux kernel"
 
 LICENSE = "GPLv2"
+
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
 SRC_URI[md5sum] = "199f037b5adc4ca158dc281b60a226f6"
