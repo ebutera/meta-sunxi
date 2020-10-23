@@ -1,6 +1,8 @@
 SOC_FAMILY ??= ""
 include conf/machine/include/soc-family.inc
 
+MACHINEOVERRIDES =. "sunxi:sunxi64:"
+
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-mainline"
 PREFERRED_PROVIDER_u-boot ?= "u-boot"
 PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot"

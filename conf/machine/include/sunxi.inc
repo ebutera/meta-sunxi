@@ -1,6 +1,8 @@
 SOC_FAMILY ??= ""
 include conf/machine/include/soc-family.inc
 
+MACHINEOVERRIDES =. "sunxi:"
+
 # Sub-architecture support
 MACHINE_SOCARCH_SUFFIX ?= ""
 MACHINE_SOCARCH_SUFFIX_sun4i = "-sun4i"
