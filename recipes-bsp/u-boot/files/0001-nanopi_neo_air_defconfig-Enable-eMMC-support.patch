@@ -1,21 +1,20 @@
-From 6b0f139f7bb1f3b24d321949230d3419a7aaba87 Mon Sep 17 00:00:00 2001
-From: Maciej Pijanowski <maciej.pijanowski@3mdeb.com>
-Date: Wed, 4 Nov 2020 21:47:51 +0100
+From b1e4b9672d7bdd4a6a4d08b1514b46af25996cc8 Mon Sep 17 00:00:00 2001
+From: Florin Sarbu <florin@resin.io>
+Date: Wed, 12 Sep 2018 14:22:49 +0200
 Subject: [PATCH] nanopi_neo_air_defconfig: Enable eMMC support
 
-Signed-off-by: Maciej Pijanowski <maciej.pijanowski@3mdeb.com>
+Upstream-status: Pending
+Signed-off-by: Florin Sarbu <florin@resin.io>
 ---
  configs/nanopi_neo_air_defconfig | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/configs/nanopi_neo_air_defconfig b/configs/nanopi_neo_air_defconfig
-index 01bf61d4c6b5..1a06f14b0e9f 100644
+index baaccf145e..77fa1489e4 100644
 --- a/configs/nanopi_neo_air_defconfig
 +++ b/configs/nanopi_neo_air_defconfig
-@@ -15,3 +15,4 @@ CONFIG_SYS_RELOC_GD_ENV_ADDR=y
+@@ -9,3 +9,4 @@ CONFIG_CONSOLE_MUX=y
+ CONFIG_DEFAULT_DEVICE_TREE="sun8i-h3-nanopi-neo-air"
  CONFIG_USB_EHCI_HCD=y
  CONFIG_USB_OHCI_HCD=y
- CONFIG_SYS_USB_EVENT_POLL_VIA_INT_QUEUE=y
 +CONFIG_MMC_SUNXI_SLOT_EXTRA=2
---
-2.25.1
