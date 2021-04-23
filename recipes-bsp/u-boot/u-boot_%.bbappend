@@ -15,8 +15,6 @@ SRC_URI_append_sunxi = " \
            file://0001-nanopi_neo_air_defconfig-Enable-eMMC-support.patch \
            file://boot.cmd \
            "
-# fix booting issue on orange pi zero
-SRC_URI_append_orange-pi-zero = " file://0002-Revert-sunxi-psci-avoid-error-address-of-packed-memb.patch"
 
 UBOOT_ENV_SUFFIX_sunxi = "scr"
 UBOOT_ENV_sunxi = "boot"
