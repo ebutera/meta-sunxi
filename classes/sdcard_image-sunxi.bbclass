@@ -17,7 +17,7 @@ inherit image_types
 IMAGE_TYPEDEP_sunxi-sdimg = "${SDIMG_ROOTFS_TYPE}"
 
 # Boot partition volume id
-BOOTDD_VOLUME_ID ?= "${MACHINE}"
+BOOTDD_VOLUME_ID ?= "boot"
 
 # Boot partition size [in KiB]
 BOOT_SPACE ?= "40960"
