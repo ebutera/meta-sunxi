@@ -15,7 +15,7 @@ S = "${WORKDIR}/pyA20-${PV}"
 
 inherit distutils3
 
-do_compile_prepend() { 
+do_compile:prepend() { 
 cp ${WORKDIR}/mapping.h ${S}/pyA20/gpio/mapping.h
 }
 

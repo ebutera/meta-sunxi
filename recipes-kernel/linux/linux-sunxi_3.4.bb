@@ -3,13 +3,13 @@ require linux.inc
 DESCRIPTION = "Linux kernel for Allwinner a10/a20 processors"
 
 COMPATIBLE_MACHINE = "(sun4i|sun5i|sun7i)"
-RDEPENDS_${PN} += "sunxi-board-fex"
+RDEPENDS:${PN} += "sunxi-board-fex"
 
 PV = "3.4.104"
 PR = "r1"
-SRCREV_pn-${PN} = "d47d367036be38c5180632ec8a3ad169a4593a88"
+SRCREV = "d47d367036be38c5180632ec8a3ad169a4593a88"
 
-MACHINE_KERNEL_PR_append = "a"
+MACHINE_KERNEL_PR:append = "a"
 
 SRC_URI += "git://github.com/linux-sunxi/linux-sunxi.git;branch=sunxi-3.4;protocol=git \
         file://0001-compiler-gcc-integrate-the-various-compiler-gcc-345-.patch \
@@ -26,7 +26,7 @@ S = "${WORKDIR}/git"
 #fix QA issue "Files/directories were installed but not shipped: /usr/src/debug"
 INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
-do_configure_prepend() {
+do_configure:prepend() {
     #fix arch QA issues ("Architecture did not match")
     rm -f ${S}/drivers/net/wireless/rtxx7x/tools/bin2h
     rm -f ${S}/modules/wifi/ar6302/AR6K_SDK_ISC.build_3.1_RC.329/host/lib/wac/wac

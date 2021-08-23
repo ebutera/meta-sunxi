@@ -16,7 +16,7 @@ S = "${WORKDIR}/git"
 
 BBCLASSEXTEND = "native nativesdk"
 
-FILES_${PN} = "${bindir}/*"
+FILES:${PN} = "${bindir}/*"
 
 CFLAGS = "-std=c99 -D_POSIX_C_SOURCE=200112L -I./include"
 CFLAGS_class-native = "-std=c99 -D_POSIX_C_SOURCE=200112L -I./include"

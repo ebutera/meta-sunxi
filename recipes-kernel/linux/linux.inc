@@ -39,7 +39,7 @@ do_kernel_configme[depends] += "virtual/${TARGET_PREFIX}binutils:do_populate_sys
 do_kernel_configme[depends] += "virtual/${TARGET_PREFIX}gcc:do_populate_sysroot"
 do_kernel_configme[depends] += "bc-native:do_populate_sysroot bison-native:do_populate_sysroot"
 
-do_configure_prepend() {
+do_configure:prepend() {
     CONF_SED_SCRIPT=""
 
     #
@@ -118,13 +118,13 @@ do_configure_prepend() {
     yes '' | oe_runmake -C ${S} O=${B} oldconfig
 }
 
-do_configure_append() {
+do_configure:append() {
     if test -e scripts/Makefile.fwinst ; then
         sed -i -e "s:-m0644:-m 0644:g" scripts/Makefile.fwinst
     fi
 }
 
-do_install_append() {
+do_install:append() {
     oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
 }
 
