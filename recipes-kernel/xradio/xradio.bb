@@ -7,7 +7,7 @@ inherit module
 PV = "0.1"
 PR = "r0"
 
-RDEPENDS_${PN} += "xradio-firmware"
+RDEPENDS:${PN} += "xradio-firmware"
 
 COMPATIBLE_MACHINE = "orange-pi-zero"
 

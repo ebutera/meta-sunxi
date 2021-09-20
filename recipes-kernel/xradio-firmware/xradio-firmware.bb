@@ -20,6 +20,6 @@ do_install() {
     install -m 0644 ${S}/xr819/fw_xr819.bin ${D}${base_libdir}/firmware/xr819/
 }
 
-FILES_${PN} = "${base_libdir}/*"
+FILES:${PN} = "${base_libdir}/*"
 
 PACKAGES = "${PN}"
