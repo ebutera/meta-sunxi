@@ -40,7 +40,7 @@ do_image_sunxi_sdimg[depends] += " \
 # SD card image name
 SDIMG = "${IMGDEPLOYDIR}/${IMAGE_NAME}.rootfs.sunxi-sdimg"
 
-IMAGE_CMD_sunxi-sdimg () {
+IMAGE_CMD:sunxi-sdimg () {
 
 	# Align partitions
 	BOOT_SPACE_ALIGNED=$(expr ${BOOT_SPACE} + ${IMAGE_ROOTFS_ALIGNMENT} - 1)
@@ -120,7 +120,7 @@ IMAGE_CMD_sunxi-sdimg () {
 }
 
 # write uboot.itb for arm64 boards
-IMAGE_CMD_sunxi-sdimg_append_sun50i () {
+IMAGE_CMD_sunxi-sdimg:append:sun50i () {
 	if [ -e "${DEPLOY_DIR_IMAGE}/${UBOOT_BINARY}" ]
 	then
 		dd if=${DEPLOY_DIR_IMAGE}/${UBOOT_BINARY} of=${SDIMG} bs=1024 seek=40 conv=notrunc

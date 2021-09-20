@@ -4,7 +4,7 @@ PREFERRED_PROVIDER_virtual/libgles1 ?= "sunxi-mali"
 PREFERRED_PROVIDER_virtual/libgles2 ?= "sunxi-mali"
 PREFERRED_PROVIDER_virtual/egl ?= "sunxi-mali"
 
-PACKAGECONFIG_remove_pn-xserver-xorg = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'glamor', '', d)}"
+PACKAGECONFIG:remove:pn-xserver-xorg = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'glamor', '', d)}"
 
 XSERVER += "sunxi-mali \
             sunxi-mali-dev"
