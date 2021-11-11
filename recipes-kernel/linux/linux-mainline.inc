@@ -21,7 +21,6 @@ KERNEL_EXTRA_ARGS += "LOADADDR=${UBOOT_ENTRYPOINT}"
 S = "${WORKDIR}/linux-${PV}"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v5.x/linux-${PV}.tar.xz \
-	file://0003-ARM-dts-nanopi-neo-air-Add-WiFi-eMMC.patch \
 	file://0001-dts-orange-pi-zero-Add-wifi-support.patch \
 	file://defconfig \
 "
