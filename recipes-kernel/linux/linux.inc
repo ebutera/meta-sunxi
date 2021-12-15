@@ -124,5 +124,3 @@ do_configure:append() {
     fi
 }
 
-PACKAGES =+ "kernel-headers"
-FILES_kernel-headers = "${exec_prefix}/src/linux*"
