@@ -19,7 +19,7 @@ UBOOT_MACHINE_olinuxino-a10s = "A10s-OLinuXino-Micro_config"
 UBOOT_MACHINE_meleg = "Mele_A1000G_config"
 
 SRC_URI = " \
-	git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=git;branch=sunxi \
+	git://github.com/linux-sunxi/u-boot-sunxi.git;protocol=https;branch=sunxi \
 	file://0001-gcc5-fixes.patch \
 	file://0002-gcc6-fixes.patch \
 	file://0003-No-gcc-version-specific-includes.patch \
