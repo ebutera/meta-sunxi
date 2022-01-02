@@ -10,7 +10,7 @@ B = "${WORKDIR}/build"
 
 COMPATIBLE_MACHINE = "(sun50i)"
 
-PLATFORM_sun50i = "sun50iw1p1"
+PLATFORM:sun50i = "sun50iw1p1"
 
 LDFLAGS[unexport] = "1"
 
