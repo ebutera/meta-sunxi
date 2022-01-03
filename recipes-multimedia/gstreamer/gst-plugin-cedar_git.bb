@@ -10,7 +10,7 @@ inherit autotools pkgconfig
 # 0.10.1 Initial Import
 SRCREV = "908987a74d341be1376895023698667892fe5569"
 
-SRC_URI = "git://github.com/ebutera/gst-plugin-cedar.git"
+SRC_URI = "git://github.com/ebutera/gst-plugin-cedar.git;protocol=https;branch=master"
 
 PV = "0.10.1+git${SRCPV}"
 PR = "r1"

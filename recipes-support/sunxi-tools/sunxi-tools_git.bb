@@ -7,7 +7,7 @@ PR = "r0"
 
 DEPENDS += "libusb"
 
-SRC_URI = "git://github.com/linux-sunxi/sunxi-tools;protocol=git"
+SRC_URI = "git://github.com/linux-sunxi/sunxi-tools;protocol=https;branch=master"
 SRCREV = "9a3d62aa0c820b3dd42ba3409b2043f4143683cd"
 
 inherit pkgconfig

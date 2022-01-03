@@ -8,7 +8,7 @@ inherit autotools
 PV = "r4p0-00rel0+git${SRCPV}"
 SRCREV = "ec0680628744f30b8fac35e41a7bd8e23e59c39f"
 
-SRC_URI = "git://github.com/linux-sunxi/libump.git"
+SRC_URI = "git://github.com/linux-sunxi/libump.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 
