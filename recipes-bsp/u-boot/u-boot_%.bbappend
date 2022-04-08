@@ -12,9 +12,10 @@ DEFAULT_PREFERENCE:sun8i = "1"
 DEFAULT_PREFERENCE:sun50i = "1"
 
 SRC_URI:append:sunxi = " \
-           file://0001-nanopi_neo_air_defconfig-Enable-eMMC-support.patch \
-           file://boot.cmd \
-           "
+        file://0001-nanopi_neo_air_defconfig-Enable-eMMC-support.patch \
+	file://0002-Added-nanopi-r1-board-support.patch \
+        file://boot.cmd \
+"
 
 UBOOT_ENV_SUFFIX:sunxi = "scr"
 UBOOT_ENV:sunxi = "boot"
