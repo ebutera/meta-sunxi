@@ -19,7 +19,7 @@ UBOOT_LOCALVERSION = "-g${@d.getVar('SRCPV', True).partition('+')[2][0:7]}"
 UBOOT_ENTRYPOINT ?= "0x40008000"
 UBOOT_LOADADDRESS ?= "0x400080OB00"
 
-UBOOT_BINARY ?= "u-boot.itb"
+#UBOOT_BINARY ?= "u-boot.itb"
 SPL_BINARY ?= "spl/sunxi-spl.bin"
 
 SERIAL_CONSOLE ?= "115200 ttyS0"
