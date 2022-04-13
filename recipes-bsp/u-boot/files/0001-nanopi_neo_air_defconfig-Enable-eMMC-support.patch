@@ -1,20 +1,21 @@
-From b1e4b9672d7bdd4a6a4d08b1514b46af25996cc8 Mon Sep 17 00:00:00 2001
+From 6a64d90ca4d976c16a2e102dbad0848e4d29776c Mon Sep 17 00:00:00 2001
 From: Florin Sarbu <florin@resin.io>
 Date: Wed, 12 Sep 2018 14:22:49 +0200
 Subject: [PATCH] nanopi_neo_air_defconfig: Enable eMMC support
 
 Upstream-status: Pending
 Signed-off-by: Florin Sarbu <florin@resin.io>
+
 ---
  configs/nanopi_neo_air_defconfig | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/configs/nanopi_neo_air_defconfig b/configs/nanopi_neo_air_defconfig
-index baaccf145e..77fa1489e4 100644
+index 806d95c1cc..8899cc3a15 100644
 --- a/configs/nanopi_neo_air_defconfig
 +++ b/configs/nanopi_neo_air_defconfig
-@@ -9,3 +9,4 @@ CONFIG_CONSOLE_MUX=y
- CONFIG_DEFAULT_DEVICE_TREE="sun8i-h3-nanopi-neo-air"
+@@ -9,3 +9,4 @@ CONFIG_DRAM_CLK=408
+ CONFIG_CONSOLE_MUX=y
  CONFIG_USB_EHCI_HCD=y
  CONFIG_USB_OHCI_HCD=y
 +CONFIG_MMC_SUNXI_SLOT_EXTRA=2
