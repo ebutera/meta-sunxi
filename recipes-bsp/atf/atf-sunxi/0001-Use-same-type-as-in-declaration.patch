@@ -1,0 +1,26 @@
+From 087b9306659effac870b4794c0f775ce3d7208c5 Mon Sep 17 00:00:00 2001
+From: Marek Belisko <marek.belisko@open-nandra.com>
+Date: Wed, 13 Apr 2022 08:09:29 +0200
+Subject: [PATCH] Use same type as in declaration
+
+Signed-off-by: Marek Belisko <marek.belisko@open-nandra.com>
+---
+ services/std_svc/psci/psci_common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/services/std_svc/psci/psci_common.c b/services/std_svc/psci/psci_common.c
+index 75f52f538..918a719f6 100644
+--- a/services/std_svc/psci/psci_common.c
++++ b/services/std_svc/psci/psci_common.c
+@@ -261,7 +261,7 @@ void psci_acquire_afflvl_locks(int start_afflvl,
+  ******************************************************************************/
+ void psci_release_afflvl_locks(int start_afflvl,
+ 			       int end_afflvl,
+-			       aff_map_node_t *mpidr_nodes[])
++			       mpidr_aff_map_nodes_t mpidr_nodes)
+ {
+ 	int level;
+ 
+-- 
+2.25.1
+
