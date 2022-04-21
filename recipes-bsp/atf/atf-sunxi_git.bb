@@ -1,8 +1,8 @@
 DESCRIPTION = "ARM Trusted Firmware Allwinner"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://license.md;md5=829bdeb34c1d9044f393d5a16c068371"
 
-SRC_URI = "git://github.com/apritzel/arm-trusted-firmware;nobranch=1"
+SRC_URI = "git://github.com/apritzel/arm-trusted-firmware;nobranch=1;protocol=https"
 SRCREV = "aa75c8da415158a94b82a430b2b40000778e851f"
 
 SRC_URI:append = " file://0001-Use-same-type-as-in-declaration.patch"
