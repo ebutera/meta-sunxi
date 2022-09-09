@@ -1,6 +1,6 @@
 DESCRIPTION = "Library for the DRI2 extension to the X Window System"
 
-LICENSE = "MIT-X"
+LICENSE = "MIT-CMU"
 LIC_FILES_CHKSUM = "file://COPYING;md5=827da9afab1f727f2a66574629e0f39c"
 
 DEPENDS = "libdrm libxext libxfixes xorgproto"

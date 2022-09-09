@@ -2,7 +2,7 @@ DESCRIPTION = "U-Boot port for sunxi"
 
 require recipes-bsp/u-boot/u-boot.inc
 
-LICENSE = "GPLv2"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 # No patches for other machines yet

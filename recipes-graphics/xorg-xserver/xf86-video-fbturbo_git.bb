@@ -2,7 +2,7 @@ require recipes-graphics/xorg-driver/xorg-driver-video.inc
 
 DESCRIPTION = "X.Org X server -- A10/A13 display driver"
 
-LICENSE = "MIT-X"
+LICENSE = "MIT-CMU"
 LIC_FILES_CHKSUM = "file://COPYING;md5=f91dc3ee5ce59eb4b528e67e98a31266"
 
 DEPENDS += "sunxi-mali libump xorgproto"

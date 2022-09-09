@@ -1,6 +1,6 @@
 DESCRIPTION = "Tools to help hacking Allwinner A10 and A20"
 
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=97bd67b5d0309e452b637f76e1c9a23c"
 
 PR = "r0"

@@ -1,7 +1,7 @@
 DESCRIPTION = "A module to control Allwinner GPIO,SPI and I2C channels"
 HOMEPAGE = "https://pypi.python.org/pypi/pyA20"
 SECTION = "devel/python"
-LICENSE = "GPLv3"
+LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://PKG-INFO;md5=4e584373bb0f46ef1e423cb7df37847d"
 DEPENDS = "python3"
 
