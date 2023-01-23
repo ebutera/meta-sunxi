@@ -9,7 +9,6 @@ MACHINE_SOCARCH_SUFFIX_sun4i = "-sun4i"
 
 PREFERRED_PROVIDER_virtual/xserver = "xserver-xorg"
 XSERVER = "xserver-xorg \
-           xf86-video-fbturbo \
            xf86-input-evdev \
            xf86-input-mouse \
            xf86-input-keyboard"
